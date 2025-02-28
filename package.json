@@ -1,0 +1,27 @@
+{
+  "name": "alttp-randomizer-frontend",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.8.1",
+    "bootstrap": "^5.3.3",
+    "bps": "^2.0.1",
+    "center-align": "^1.0.1",
+    "crc-32": "^1.2.2",
+    "js-base64": "^3.7.7",
+    "localforage": "^1.10.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.1.0",
+    "vite-plugin-vue-devtools": "^7.7.2"
+  }
+}
