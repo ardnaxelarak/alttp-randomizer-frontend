@@ -17,7 +17,6 @@ export default defineComponent({
   },
   methods: {
     uploadSprite(file) {
-      console.log(file);
       if (!file) {
         this.sprite_error = null;
         this.sprite = null;
