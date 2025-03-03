@@ -1,0 +1,37 @@
+goal:
+  ganon: "{{ crystals_ganon }} Crystal Ganon"
+  fast_ganon: "{{ crystals_ganon }} Crystal Fast Ganon"
+  all_dungeons: All Dungeons
+  triforce_hunt: Triforce Hunt
+  ganon_hunt: Ganon Hunt
+  completionist: Completionist
+weapons:
+  random: Randomized Swords
+  assured: Assured Sword
+  vanilla: Vanilla Swords
+  swordless: Swordless
+mode:
+  open: Open
+  standard: Standard
+  inverted: Inverted
+entrance_shuffle:
+  vanilla: Vanilla Entrances
+  full: Full Entrance Shuffle
+  crossed: Crossed Entrance Shuffle
+  swapped: Swapped Entrance Shuffle
+  decoupled: Decoupled Entrance Shuffle
+enemy_shuffle:
+  vanilla: Vanilla Enemies
+  shuffled: Shuffled Enemies
+  mimics: All Mimics
+boss_shuffle:
+  vanilla: Vanilla Bosses
+  simple: Simple Boss Shuffle
+  full: Full Boss Shuffle
+  random: Random Boss Shuffle
+  prize_unique: Unique Prize Boss Shuffle
+dungeon_items:
+  dungeon: Dungeon
+  wild: Wild
+  nearby: Nearby
+  universal: Universal

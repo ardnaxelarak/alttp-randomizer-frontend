@@ -2,6 +2,7 @@
 import { defineComponent } from "vue";
 
 import SpritePicker from "@/components/SpritePicker.vue";
+import SeedSettings from "@/components/SeedSettings.vue";
 
 import { Base64 } from "js-base64";
 import * as bps from "bps";
@@ -11,6 +12,7 @@ import axios from "axios";
 
 export default defineComponent({
   components: {
+    SeedSettings,
     SpritePicker,
   },
   data() {
@@ -21,6 +23,7 @@ export default defineComponent({
       sprite: null,
       patch: null,
       error: null,
+      settings: null,
     };
   },
   props: {
@@ -46,6 +49,7 @@ export default defineComponent({
         const sourceChecksum = instructions.sourceChecksum.toString(16).toUpperCase();
         if (sourceChecksum == this.rom_checksum) {
           this.patch = instructions;
+          this.settings = seedData.settings;
         } else {
           this.error = "Patch does not specify correct source checksum.";
         }
@@ -54,7 +58,6 @@ export default defineComponent({
         this.error = "Error parsing patch.";
       }
     } else {
-      console.log(response.data);
       this.error = "Error loading seed.";
     }
   },
@@ -131,7 +134,7 @@ export default defineComponent({
       {{ error }}
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">
+      <li v-if="!baserom" class="list-group-item">
         <div class="mb-2">
           <label for="rom-input" class="form-label">
             The Legend of Zelda: A Link to the Past (JP 1.0) Rom:
@@ -141,6 +144,9 @@ export default defineComponent({
             {{ baserom_error }}
           </div>
         </div>
+      </li>
+      <li v-if="settings" class="list-group-item">
+        <SeedSettings :settings="settings" />
       </li>
       <li class="list-group-item">
         <div class="mb-2">
