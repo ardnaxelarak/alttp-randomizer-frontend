@@ -33,33 +33,15 @@ export default defineComponent({
     document.title = `ALttPRandomizer: ${this.id}`;
     const file = await localforage.getItem("baserom");
     if (file) {
-      const dataTransfer = new DataTransfer();
-      dataTransfer.items.add(file);
-      document.getElementById("rom-input").files = dataTransfer.files;
+      // const dataTransfer = new DataTransfer();
+      // dataTransfer.items.add(file);
+      // this.baserom_file = dataTransfer.files;
+      // document.getElementById("rom-input").files = dataTransfer.files;
       this.uploadBaseRom(file);
     }
 
-    const response = await axios.get(`/seed/${this.id}`);
+    await this.fetchSeed();
 
-    if (response && response.data && response.data["patch.bps"]) {
-      const seedData = response.data;
-      const patchArray = Base64.toUint8Array(seedData["patch.bps"]);
-      try {
-        const { instructions, _ } = bps.parse(patchArray);
-        const sourceChecksum = instructions.sourceChecksum.toString(16).toUpperCase();
-        if (sourceChecksum == this.rom_checksum) {
-          this.patch = instructions;
-          this.settings = seedData.settings;
-        } else {
-          this.error = "Patch does not specify correct source checksum.";
-        }
-      } catch (error) {
-        console.log(error);
-        this.error = "Error parsing patch.";
-      }
-    } else {
-      this.error = "Error loading seed.";
-    }
   },
   computed: {
     permalink() {
@@ -67,6 +49,41 @@ export default defineComponent({
     },
   },
   methods: {
+    dataLoaded(patch, seedData) {
+      this.patch = patch;
+      this.settings = seedData.settings;
+    },
+    async fetchSeed() {
+      await axios.get(`/seed/${this.id}`)
+        .then(response => {
+          if (response && response.data && response.data.patch) {
+            const seedData = response.data;
+            const patchArray = Base64.toUint8Array(seedData.patch);
+            try {
+              const { instructions, _ } = bps.parse(patchArray);
+              const sourceChecksum = instructions.sourceChecksum.toString(16).toUpperCase();
+              if (sourceChecksum == this.rom_checksum) {
+                this.dataLoaded(instructions, seedData);
+              } else {
+                this.error = "Patch does not specify correct source checksum.";
+              }
+            } catch (error) {
+              console.log(error);
+              this.error = "Error parsing patch.";
+            }
+          } else {
+            this.error = "Error loading seed.";
+          }
+        })
+        .catch(error => {
+          if (error.response.status == 409) {
+            // still generating, try again
+            setInterval(2000, this.fetchSeed.bind(this));
+          } else {
+            this.error = "Seed not found. :(";
+          }
+        });
+    },
     uploadBaseRom(file) {
       if (!file) {
         this.baserom_error = null;
@@ -126,12 +143,9 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="card content-div mt-3 mb-3">
+  <div v-if="patch" class="card content-div m-3">
     <div class="card-header">
       Permalink: <a :href="permalink">{{ permalink }}</a>
-    </div>
-    <div v-if="error" class="card-header">
-      {{ error }}
     </div>
     <ul class="list-group list-group-flush">
       <li v-if="!baserom" class="list-group-item">
@@ -161,4 +175,19 @@ export default defineComponent({
       </li>
     </ul>
   </div>
+  <div v-else-if="error" class="error-message">
+    {{ error }}
+  </div>
+  <div v-else>
+    <img class="center" src="/bludormspinbig.gif" />
+  </div>
 </template>
+
+<style scoped>
+.error-message {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bold;
+  margin-top: 3rem;
+}
+</style>

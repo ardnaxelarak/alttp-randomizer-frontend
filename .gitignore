@@ -1,5 +1,6 @@
 .env
-kube
+kube/
+scripts/
 
 # Logs
 logs

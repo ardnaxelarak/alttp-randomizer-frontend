@@ -5,6 +5,15 @@ goal:
   triforce_hunt: Triforce Hunt
   ganon_hunt: Ganon Hunt
   completionist: Completionist
+crystals_gt:
+  7: 7 Crystals
+  6: 6 Crystals
+  5: 5 Crystals
+  4: 4 Crystals
+  3: 3 Crystals
+  2: 2 Crystals
+  1: 1 Crystal
+  random: Random
 weapons:
   random: Randomized Swords
   assured: Assured Sword

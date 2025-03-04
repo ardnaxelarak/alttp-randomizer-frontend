@@ -29,9 +29,13 @@ export default defineComponent({
   <div v-if="settings.goal">
     Goal: {{ settingsDisplay.goal[settings.goal] }}
   </div>
+  <div v-if="settings.crystals_gt">
+    Ganon's Tower Entry: {{ settingsDisplay.crystals_gt[settings.crystals_gt] }}
+  </div>
   <div v-if="settings.weapons">
     Weapons: {{ settingsDisplay.weapons[settings.weapons] }}
   </div>
+  <hr />
   <div v-if="settings.entrance_shuffle && settings.entrance_shuffle != 'vanilla'">
     {{ settingsDisplay.entrance_shuffle[settings.entrance_shuffle] }}
   </div>
