@@ -1,3 +1,5 @@
+randomizer:
+  apr2025: April 2025 Special Randomizer
 goal:
   ganon: "{{ crystals_ganon }} Crystal Ganon"
   fast_ganon: "{{ crystals_ganon }} Crystal Fast Ganon"

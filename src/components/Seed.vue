@@ -2,6 +2,13 @@
 import { defineComponent } from "vue";
 
 import SpritePicker from "@/components/SpritePicker.vue";
+import HeartBeepPicker from "@/components/HeartBeepPicker.vue";
+import HeartColorPicker from "@/components/HeartColorPicker.vue";
+import QuickswapPicker from "@/components/QuickswapPicker.vue";
+import ReduceFlashingPicker from "@/components/ReduceFlashingPicker.vue";
+import BackgroundMusicPicker from "@/components/BackgroundMusicPicker.vue";
+import MsuResumePicker from "@/components/MsuResumePicker.vue";
+
 import SeedSettings from "@/components/SeedSettings.vue";
 
 import { Base64 } from "js-base64";
@@ -14,6 +21,12 @@ export default defineComponent({
   components: {
     SeedSettings,
     SpritePicker,
+    HeartBeepPicker,
+    HeartColorPicker,
+    QuickswapPicker,
+    ReduceFlashingPicker,
+    BackgroundMusicPicker,
+    MsuResumePicker,
   },
   data() {
     return {
@@ -118,6 +131,13 @@ export default defineComponent({
         this.sprite.apply(rom);
       }
 
+      this.$refs.heartbeep.patch(rom);
+      this.$refs.heartcolor.patch(rom);
+      this.$refs.msu_resume.patch(rom);
+      this.$refs.bgm.patch(rom);
+      this.$refs.reduce_flashing.patch(rom);
+      this.$refs.quickswap.patch(rom);
+
       // Fix Checksum
       const sum = rom.reduce(function(sum, mbyte, i) {
         if (i >= 0x7fdc && i < 0x7fe0) {
@@ -165,6 +185,24 @@ export default defineComponent({
       <li class="list-group-item">
         <div class="mb-2">
           <SpritePicker @spriteUpdate="spriteUpdate" />
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="mb-2">
+          <HeartBeepPicker ref="heartbeep" />
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="mb-2">
+          <HeartColorPicker ref="heartcolor" />
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div>
+          <BackgroundMusicPicker ref="bgm" />
+          <MsuResumePicker ref="msu_resume" />
+          <ReduceFlashingPicker ref="reduce_flashing" />
+          <QuickswapPicker ref="quickswap" />
         </div>
       </li>
       <li class="list-group-item">

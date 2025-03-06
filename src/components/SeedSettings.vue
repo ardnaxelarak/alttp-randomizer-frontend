@@ -26,6 +26,10 @@ export default defineComponent({
 </script>
 
 <template>
+  <div v-if="settings.randomizer && settingsDisplay.randomizer[settings.randomizer]">
+    {{ settingsDisplay.randomizer[settings.randomizer] }}
+    <hr>
+  </div>
   <div v-if="settings.goal">
     Goal: {{ settingsDisplay.goal[settings.goal] }}
   </div>
