@@ -91,7 +91,7 @@ export default defineComponent({
         .catch(error => {
           if (error.response.status == 409) {
             // still generating, try again
-            setInterval(2000, this.fetchSeed.bind(this));
+            setTimeout(this.fetchSeed.bind(this), 2000);
           } else {
             this.error = "Seed not found. :(";
           }
