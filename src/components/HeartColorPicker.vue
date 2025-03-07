@@ -6,6 +6,12 @@ import localforage from "localforage";
 export default defineComponent({
   data() {
     return {
+      options: {
+        red: {display: "Red", class: "btn-outline-danger"},
+        blue: {display: "Blue", class: "btn-outline-primary"},
+        green: {display: "Green", class: "btn-outline-success"},
+        yellow: {display: "Yellow", class: "btn-outline-warning"},
+      },
       heartcolor: null,
     };
   },
@@ -43,21 +49,13 @@ export default defineComponent({
   <div>
     Heart Color:
   </div>
-  <div class="btn-group mt-2" role="group">
-    <input type="radio" class="btn-check" name="heartcolor" id="heartcolor_red"
-        autocomplete="off" value="red" v-model="heartcolor" @change="change" />
-    <label class="btn btn-outline-danger" for="heartcolor_red">Red</label>
-
-    <input type="radio" class="btn-check" name="heartcolor" id="heartcolor_blue"
-        autocomplete="off" value="blue" v-model="heartcolor" @change="change" />
-    <label class="btn btn-outline-primary" for="heartcolor_blue">Blue</label>
-
-    <input type="radio" class="btn-check" name="heartcolor" id="heartcolor_green"
-        autocomplete="off" value="green" v-model="heartcolor" @change="change" />
-    <label class="btn btn-outline-success" for="heartcolor_green">Green</label>
-
-    <input type="radio" class="btn-check" name="heartcolor" id="heartcolor_yellow"
-        autocomplete="off" value="yellow" v-model="heartcolor" @change="change" />
-    <label class="btn btn-outline-warning" for="heartcolor_yellow">Yellow</label>
+  <div class="nav nav-pills nav-justified mt-1">
+    <template v-for="value of Object.keys(options)">
+      <input type="radio" class="btn-check" :name="heartcolor" :id="`heartcolor_${value}`"
+          autocomplete="off" :value="value" v-model="heartcolor" @change="change" />
+      <label :class="`btn ${options[value].class} nav-item m-1`" :for="`heartcolor_${value}`">
+        {{ options[value].display }}
+      </label>
+    </template>
   </div>
 </template>

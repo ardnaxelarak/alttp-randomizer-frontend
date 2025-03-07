@@ -127,6 +127,8 @@ base:
       independent:
         display: Independent
   boss_shuffle:
+    display: Boss Shuffle
+    default: vanilla
     values:
       vanilla:
         display: None
@@ -139,12 +141,16 @@ base:
       prize_unique:
         display: Prize Unique
   enemy_shuffle:
+    display: Enemy Shuffle
+    default: vanilla
     values:
       vanilla:
         display: None
       shuffled:
         display: Shuffled
   small_keys:
+    display: Small Key Shuffle
+    default: dungeon
     values:
       dungeon:
         display: In Dungeon
@@ -155,6 +161,8 @@ base:
       universal:
         display: Universal
   big_keys:
+    display: Big Key Shuffle
+    default: dungeon
     values:
       dungeon:
         display: In Dungeon
@@ -163,6 +171,8 @@ base:
       nearby:
         display: Nearby
   maps:
+    display: Map Shuffle
+    default: dungeon
     values:
       dungeon:
         display: In Dungeon
@@ -171,6 +181,8 @@ base:
       nearby:
         display: Nearby
   compasses:
+    display: Compass Shuffle
+    default: dungeon
     values:
       dungeon:
         display: In Dungeon
@@ -179,12 +191,16 @@ base:
       nearby:
         display: Nearby
   shop_shuffle:
+    display: Shop Shuffle
+    default: vanilla
     values:
       vanilla:
         display: None
       shuffled:
         display: Shuffled
   drop_shuffle:
+    display: Drop Shuffle
+    default: vanilla
     values:
       vanilla:
         display: None
@@ -193,6 +209,8 @@ base:
       underworld:
         display: All Underworld Enemies
   pottery:
+    display: Pottery Shuffle
+    default: vanilla
     values:
       vanilla:
         display: None
@@ -213,6 +231,8 @@ base:
       lottery:
         display: Lottery
   prize_shuffle:
+    display: Prize Shuffle
+    default: vanilla
     values:
       vanilla:
         display: On Boss
@@ -223,6 +243,8 @@ base:
       wild:
         display: Wild
   boots:
+    display: Boots
+    default: normal
     values:
       normal:
         display: No Starting Boots

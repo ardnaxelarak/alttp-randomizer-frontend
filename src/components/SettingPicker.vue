@@ -15,6 +15,7 @@ export default defineComponent({
   props: {
     modelValue: null,
     name: null,
+    color: "primary",
     settings: {},
   },
   mounted() {
@@ -35,7 +36,7 @@ export default defineComponent({
     <template v-for="value of Object.keys(settings.values)">
       <input type="radio" class="btn-check" :name="name" :id="`${name}_${value}`"
           autocomplete="off" :value="value" v-model="selected" @change="change" />
-      <label class="btn btn-outline-primary nav-item m-1" :for="`${name}_${value}`">
+      <label :class="`btn btn-outline-${color} nav-item m-1`" :for="`${name}_${value}`">
         {{ settings.values[value].display }}
       </label>
     </template>

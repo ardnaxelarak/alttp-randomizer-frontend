@@ -163,61 +163,63 @@ export default defineComponent({
 </script>
 
 <template>
-  <div v-if="patch" class="card content-div m-3">
-    <div class="card-header">
-      Permalink: <a :href="permalink">{{ permalink }}</a>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li v-if="!baserom" class="list-group-item">
-        <div class="mb-2">
-          <label for="rom-input" class="form-label">
-            The Legend of Zelda: A Link to the Past (JP 1.0) Rom:
-          </label>
-          <input id="rom-input" class="form-control" type="file" accept=".sfc,.smc" @change="uploadBaseRom($event.target.files[0])" />
-          <div v-if="baserom_error" class="invalid">
-            {{ baserom_error }}
+  <div class="mw-30">
+    <div v-if="patch" class="card content-div m-3">
+      <div class="card-header">
+        Permalink: <a :href="permalink">{{ permalink }}</a>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li v-if="!baserom" class="list-group-item">
+          <div class="mb-2">
+            <label for="rom-input" class="form-label">
+              The Legend of Zelda: A Link to the Past (JP 1.0) Rom:
+            </label>
+            <input id="rom-input" class="form-control" type="file" accept=".sfc,.smc" @change="uploadBaseRom($event.target.files[0])" />
+            <div v-if="baserom_error" class="invalid">
+              {{ baserom_error }}
+            </div>
           </div>
-        </div>
-      </li>
-      <li v-if="settings" class="list-group-item">
-        <SeedSettings :settings="settings" />
-      </li>
-      <li class="list-group-item">
-        <div class="mb-2">
-          <SpritePicker @spriteUpdate="spriteUpdate" />
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="mb-2">
-          <HeartBeepPicker ref="heartbeep" />
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="mb-2">
-          <HeartColorPicker ref="heartcolor" />
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div>
-          <BackgroundMusicPicker ref="bgm" />
-          <MsuResumePicker ref="msu_resume" />
-          <ReduceFlashingPicker ref="reduce_flashing" />
-          <QuickswapPicker ref="quickswap" />
-        </div>
-      </li>
-      <li class="list-group-item">
-        <button type="submit" class="btn btn-primary submit-btn" :disabled="!baserom || !patch" @click="patchRom">
-          Download Seed!
-        </button>
-        <a id="downloader" style="display: none;" />
-      </li>
-    </ul>
-  </div>
-  <div v-else-if="error" class="error-message">
-    {{ error }}
-  </div>
-  <div v-else>
-    <img class="center" src="/bludormspinbig.gif" />
+        </li>
+        <li v-if="settings" class="list-group-item">
+          <SeedSettings :settings="settings" />
+        </li>
+        <li class="list-group-item">
+          <div class="mb-2">
+            <SpritePicker @spriteUpdate="spriteUpdate" />
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="mb-2">
+            <HeartBeepPicker ref="heartbeep" />
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="mb-2">
+            <HeartColorPicker ref="heartcolor" />
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div>
+            <BackgroundMusicPicker ref="bgm" />
+            <MsuResumePicker ref="msu_resume" />
+            <ReduceFlashingPicker ref="reduce_flashing" />
+            <QuickswapPicker ref="quickswap" />
+          </div>
+        </li>
+        <li class="list-group-item">
+          <button type="submit" class="btn btn-primary submit-btn" :disabled="!baserom || !patch" @click="patchRom">
+            Download Seed!
+          </button>
+          <a id="downloader" style="display: none;" />
+        </li>
+      </ul>
+    </div>
+    <div v-else-if="error" class="error-message">
+      {{ error }}
+    </div>
+    <div v-else>
+      <img class="center" src="/bludormspinbig.gif" />
+    </div>
   </div>
 </template>
 

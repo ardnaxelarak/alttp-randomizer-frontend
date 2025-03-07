@@ -6,6 +6,12 @@ import localforage from "localforage";
 export default defineComponent({
   data() {
     return {
+      options: {
+        normal: "Normal",
+        half: "Half",
+        quarter: "Quarter",
+        off: "Off",
+      },
       heartbeep: null,
     };
   },
@@ -46,21 +52,13 @@ export default defineComponent({
   <div>
     Heart Beep Speed:
   </div>
-  <div class="btn-group mt-2" role="group">
-    <input type="radio" class="btn-check" name="heartbeep" id="heartbeep_normal"
-        autocomplete="off" value="normal" v-model="heartbeep" @change="change" />
-    <label class="btn btn-outline-primary" for="heartbeep_normal">Normal</label>
-
-    <input type="radio" class="btn-check" name="heartbeep" id="heartbeep_half"
-        autocomplete="off" value="half" v-model="heartbeep" @change="change" />
-    <label class="btn btn-outline-primary" for="heartbeep_half">Half</label>
-
-    <input type="radio" class="btn-check" name="heartbeep" id="heartbeep_quarter"
-        autocomplete="off" value="quarter" v-model="heartbeep" @change="change" />
-    <label class="btn btn-outline-primary" for="heartbeep_quarter">Quarter</label>
-
-    <input type="radio" class="btn-check" name="heartbeep" id="heartbeep_off"
-        autocomplete="off" value="off" v-model="heartbeep" @change="change" />
-    <label class="btn btn-outline-primary" for="heartbeep_off">Off</label>
+  <div class="nav nav-pills nav-justified mt-2">
+    <template v-for="value of Object.keys(options)">
+      <input type="radio" class="btn-check" :name="heartbeep" :id="`heartbeep_${value}`"
+          autocomplete="off" :value="value" v-model="heartbeep" @change="change" />
+      <label class="btn btn-outline-primary nav-item m-1" :for="`heartbeep_${value}`">
+        {{ options[value] }}
+      </label>
+    </template>
   </div>
 </template>
