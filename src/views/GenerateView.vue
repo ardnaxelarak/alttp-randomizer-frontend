@@ -15,6 +15,9 @@ export default defineComponent({
       set: {},
     };
   },
+  mounted() {
+    document.title = "ALttPRandomizer";
+  },
   computed: {
     settings() {
       return settingsData.base;

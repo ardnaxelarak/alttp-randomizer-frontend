@@ -9,6 +9,7 @@ const router = createRouter({
       path: '/generate',
       name: 'generate',
       component: GenerateView,
+      alias: '/',
     },
     {
       path: '/seed/:id',
