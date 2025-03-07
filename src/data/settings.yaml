@@ -1,254 +1,255 @@
-base:
-  race:
-    default: normal
-    values:
-      normal:
-        display: Normal
-      race:
-        display: Race
-  mode:
-    display: Mode
-    default: open
-    values:
-      open:
-        display: Open
-      standard:
-        display: Standard
-      inverted:
-        display: Inverted
-  weapons:
-    display: Weapons
-    default: random
-    values:
-      random:
-        display: Random
-      assured:
-        display: Assured
-      vanilla:
-        display: Vanilla
-      swordless:
-        display: Swordless
-  goal:
-    display: Goal
-    default: ganon
-    values:
-      ganon:
-        display: Ganon
-      fast_ganon:
-        display: Fast Ganon
-      all_dungeons:
-        display: All Dungeons
-      pedestal:
-        display: Pedestal
-      triforce_hunt:
-        display: Triforce Hunt
-      ganon_hunt:
-        display: Ganon Hunt
-      completionist:
-        display: Completionist
-  crystals_ganon:
-    display: Crystals for Ganon
-    default: "7"
-    values:
-      7:
-        display: 7
-      6:
-        display: 6
-      5:
-        display: 5
-      4:
-        display: 4
-      3:
-        display: 3
-      2:
-        display: 2
-      1:
-        display: 1
-      0:
-        display: 0
-      random:
-        display: Random
-  crystals_gt:
-    display: Crystals for GT
-    default: "7"
-    values:
-      7:
-        display: 7
-      6:
-        display: 6
-      5:
-        display: 5
-      4:
-        display: 4
-      3:
-        display: 3
-      2:
-        display: 2
-      1:
-        display: 1
-      0:
-        display: 0
-      random:
-        display: Random
-  entrance_shuffle:
-    display: Entrance Shuffle
-    default: vanilla
-    values:
-      vanilla:
-        display: None
-      full:
-        display: Full
-      crossed:
-        display: Crossed
-      swapped:
-        display: Swapped
-      decoupled:
-        display: Decoupled
-  skull_woods:
-    display: Skull Woods Entrances
-    default: original
-    values:
-      original:
-        display: Original
-      restricted:
-        display: Restricted
-      loose:
-        display: Loose
-      follow_linked:
-        display: Follow Linked
-  linked_drops:
-    display: Linked Drops
-    default: unset
-    values:
-      unset:
-        display: Unset
-      linked:
-        display: Linked
-      independent:
-        display: Independent
-  boss_shuffle:
-    display: Boss Shuffle
-    default: vanilla
-    values:
-      vanilla:
-        display: None
-      simple:
-        display: Simple
-      full:
-        display: Full
-      random:
-        display: Random
-      prize_unique:
-        display: Prize Unique
-  enemy_shuffle:
-    display: Enemy Shuffle
-    default: vanilla
-    values:
-      vanilla:
-        display: None
-      shuffled:
-        display: Shuffled
-  small_keys:
-    display: Small Key Shuffle
-    default: dungeon
-    values:
-      dungeon:
-        display: In Dungeon
-      wild:
-        display: Wild
-      nearby:
-        display: Nearby
-      universal:
-        display: Universal
-  big_keys:
-    display: Big Key Shuffle
-    default: dungeon
-    values:
-      dungeon:
-        display: In Dungeon
-      wild:
-        display: Wild
-      nearby:
-        display: Nearby
-  maps:
-    display: Map Shuffle
-    default: dungeon
-    values:
-      dungeon:
-        display: In Dungeon
-      wild:
-        display: Wild
-      nearby:
-        display: Nearby
-  compasses:
-    display: Compass Shuffle
-    default: dungeon
-    values:
-      dungeon:
-        display: In Dungeon
-      wild:
-        display: Wild
-      nearby:
-        display: Nearby
-  shop_shuffle:
-    display: Shop Shuffle
-    default: vanilla
-    values:
-      vanilla:
-        display: None
-      shuffled:
-        display: Shuffled
-  drop_shuffle:
-    display: Drop Shuffle
-    default: vanilla
-    values:
-      vanilla:
-        display: None
-      keys:
-        display: Key Drops
-      underworld:
-        display: All Underworld Enemies
-  pottery:
-    display: Pottery Shuffle
-    default: vanilla
-    values:
-      vanilla:
-        display: None
-      keys:
-        display: Keys
-      cave:
-        display: Caves
-      cave_keys:
-        display: Caves & Keys
-      reduced:
-        display: Reduced
-      clustered:
-        display: Clustered
-      non_empty:
-        display: Non-Empty
-      dungeon:
-        display: Dungeon
-      lottery:
-        display: Lottery
-  prize_shuffle:
-    display: Prize Shuffle
-    default: vanilla
-    values:
-      vanilla:
-        display: On Boss
-      dungeon:
-        display: In Dungeon
-      nearby:
-        display: Nearby
-      wild:
-        display: Wild
-  boots:
-    display: Boots
-    default: normal
-    values:
-      normal:
-        display: No Starting Boots
-      pseudoboots:
-        display: Pseudoboots
-      starting:
-        display: Starting Boots
+race:
+  default: normal
+  values:
+    normal:
+      display: Normal
+    race:
+      display: Race
+mode:
+  display: Mode
+  default: open
+  values:
+    open:
+      display: Open
+    standard:
+      display: Standard
+    inverted:
+      display: Inverted
+weapons:
+  display: Weapons
+  default: random
+  values:
+    random:
+      display: Random
+    assured:
+      display: Assured
+    vanilla:
+      display: Vanilla
+    swordless:
+      display: Swordless
+goal:
+  display: Goal
+  default: ganon
+  values:
+    ganon:
+      display: Ganon
+    fast_ganon:
+      display: Fast Ganon
+    all_dungeons:
+      display: All Dungeons
+    pedestal:
+      display: Pedestal
+    triforce_hunt:
+      display: Triforce Hunt
+    ganon_hunt:
+      display: Ganon Hunt
+    completionist:
+      display: Completionist
+crystals_ganon:
+  display: Crystals for Ganon
+  default: "7"
+  order: [7, 6, 5, 4, 3, 2, 1, 0, "random"]
+  values:
+    7:
+      display: 7
+    6:
+      display: 6
+    5:
+      display: 5
+    4:
+      display: 4
+    3:
+      display: 3
+    2:
+      display: 2
+    1:
+      display: 1
+    0:
+      display: 0
+    random:
+      display: Random
+crystals_gt:
+  display: Crystals for GT
+  default: "7"
+  order: [7, 6, 5, 4, 3, 2, 1, 0, "random"]
+  values:
+    7:
+      display: 7
+    6:
+      display: 6
+    5:
+      display: 5
+    4:
+      display: 4
+    3:
+      display: 3
+    2:
+      display: 2
+    1:
+      display: 1
+    0:
+      display: 0
+    random:
+      display: Random
+entrance_shuffle:
+  display: Entrance Shuffle
+  default: vanilla
+  values:
+    vanilla:
+      display: None
+    full:
+      display: Full
+    crossed:
+      display: Crossed
+    swapped:
+      display: Swapped
+    decoupled:
+      display: Decoupled
+skull_woods:
+  display: Skull Woods Entrances
+  default: original
+  values:
+    original:
+      display: Original
+    restricted:
+      display: Restricted
+    loose:
+      display: Loose
+    follow_linked:
+      display: Follow Linked
+linked_drops:
+  display: Linked Drops
+  default: unset
+  values:
+    unset:
+      display: Unset
+    linked:
+      display: Linked
+    independent:
+      display: Independent
+boss_shuffle:
+  display: Boss Shuffle
+  default: vanilla
+  values:
+    vanilla:
+      display: None
+    simple:
+      display: Simple
+    full:
+      display: Full
+    random:
+      display: Random
+    prize_unique:
+      display: Prize Unique
+enemy_shuffle:
+  display: Enemy Shuffle
+  default: vanilla
+  values:
+    vanilla:
+      display: None
+    shuffled:
+      display: Shuffled
+small_keys:
+  display: Small Key Shuffle
+  default: dungeon
+  values:
+    dungeon:
+      display: In Dungeon
+    wild:
+      display: Wild
+    nearby:
+      display: Nearby
+    universal:
+      display: Universal
+big_keys:
+  display: Big Key Shuffle
+  default: dungeon
+  values:
+    dungeon:
+      display: In Dungeon
+    wild:
+      display: Wild
+    nearby:
+      display: Nearby
+maps:
+  display: Map Shuffle
+  default: dungeon
+  values:
+    dungeon:
+      display: In Dungeon
+    wild:
+      display: Wild
+    nearby:
+      display: Nearby
+compasses:
+  display: Compass Shuffle
+  default: dungeon
+  values:
+    dungeon:
+      display: In Dungeon
+    wild:
+      display: Wild
+    nearby:
+      display: Nearby
+shop_shuffle:
+  display: Shop Shuffle
+  default: vanilla
+  values:
+    vanilla:
+      display: None
+    shuffled:
+      display: Shuffled
+drop_shuffle:
+  display: Drop Shuffle
+  default: vanilla
+  values:
+    vanilla:
+      display: None
+    keys:
+      display: Key Drops
+    underworld:
+      display: All Underworld Enemies
+pottery:
+  display: Pottery Shuffle
+  default: vanilla
+  values:
+    vanilla:
+      display: None
+    keys:
+      display: Keys
+    cave:
+      display: Caves
+    cave_keys:
+      display: Caves & Keys
+    reduced:
+      display: Reduced
+    clustered:
+      display: Clustered
+    non_empty:
+      display: Non-Empty
+    dungeon:
+      display: Dungeon
+    lottery:
+      display: Lottery
+prize_shuffle:
+  display: Prize Shuffle
+  default: vanilla
+  values:
+    vanilla:
+      display: On Boss
+    dungeon:
+      display: In Dungeon
+    nearby:
+      display: Nearby
+    wild:
+      display: Wild
+boots:
+  display: Boots
+  default: normal
+  values:
+    normal:
+      display: No Starting Boots
+    pseudoboots:
+      display: Pseudoboots
+    starting:
+      display: Starting Boots

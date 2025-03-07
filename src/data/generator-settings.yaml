@@ -1,0 +1,34 @@
+base:
+  mode: all
+  weapons: all
+  goal: all
+  crystals_ganon: all
+  crystals_gt: all
+  entrance_shuffle: all
+  skull_woods: all
+  linked_drops: all
+  boss_shuffle: all
+  enemy_shuffle: all
+  small_keys: all
+  big_keys: all
+  maps: all
+  compasses: all
+  shop_shuffle: all
+  drop_shuffle: all
+  pottery: all
+  prize_shuffle: all
+  boots: all
+apr2025:
+  mode: ['open', 'standard']
+  weapons: all
+  crystals_ganon: all
+  entrance_shuffle: ['vanilla', 'crossed']
+  dungeon_item_shuffle:
+    display: Dungeon Item Shuffle
+    default: dungeon
+    values:
+      dungeon:
+        display: In Dungeon
+      wild:
+        display: Wild
+  boots: ['normal', 'pseudoboots']
