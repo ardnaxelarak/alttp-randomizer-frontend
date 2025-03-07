@@ -48,7 +48,7 @@ base:
         display: Completionist
   crystals_ganon:
     display: Crystals for Ganon
-    default: 7
+    default: "7"
     values:
       7:
         display: 7
@@ -70,7 +70,7 @@ base:
         display: Random
   crystals_gt:
     display: Crystals for GT
-    default: 7
+    default: "7"
     values:
       7:
         display: 7

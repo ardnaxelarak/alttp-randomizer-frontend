@@ -33,7 +33,7 @@ export default defineComponent({
       for (const setting of Object.keys(this.$data)) {
         settings[setting] = this.$data[setting];
       }
-      await axios.post("/generate", {settings: settings})
+      await axios.post("/generate", settings)
         .then(response => {
           const id = response.data;
           this.$router.push(`/seed/${id}`);
