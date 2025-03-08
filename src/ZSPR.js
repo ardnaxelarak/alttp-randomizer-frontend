@@ -71,7 +71,7 @@ export default class ZSPR {
       const [tophalf, bottomhalf] = format_author(author);
 
       rom.set(tophalf, 0x118002);
-      rom.set(bottomhalf, 0x11801F);
+      rom.set(bottomhalf, 0x118020);
     }
 
     return rom;
