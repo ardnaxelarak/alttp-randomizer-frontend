@@ -1,0 +1,20 @@
+base:
+  default:
+    display: Default
+  boots:
+    display: Boots
+    boots: starting
+  crosskeys:
+    display: CrossKeys
+    goal: fast_ganon
+    entrance_shuffle: crossed
+    small_keys: wild
+    big_keys: wild
+    maps: wild
+    compasses: wild
+    boots: pseudoboots
+  super_quick:
+    display: Super Quick
+    weapons: assured
+    goal: fast_ganon
+    crystals_ganon: 0

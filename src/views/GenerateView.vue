@@ -3,10 +3,12 @@ import { defineComponent } from "vue";
 
 import axios from "axios";
 
+import PresetPicker from "@/components/PresetPicker.vue";
 import SettingPicker from "@/components/SettingPicker.vue";
 
 export default defineComponent({
   components: {
+    PresetPicker,
     SettingPicker,
   },
   data() {
@@ -16,6 +18,14 @@ export default defineComponent({
   },
   mounted() {
     document.title = "ALttPRandomizer";
+  },
+  watch: {
+    set: {
+      handler(newValue, oldValue) {
+        this.$refs.preset.settingChanged(newValue);
+      },
+      deep: true,
+    }
   },
   methods: {
     async generate(race) {
@@ -35,6 +45,13 @@ export default defineComponent({
           console.log(error);
         });
     },
+    presetSelected(preset) {
+      for (const setting of Object.keys(this.set)) {
+        if (preset[setting] != undefined) {
+          this.set[setting] = preset[setting];
+        }
+      }
+    },
   },
 });
 </script>
@@ -45,6 +62,11 @@ export default defineComponent({
       Generate Seed
     </div>
     <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="mb-2 mt-2">
+          <PresetPicker ref="preset" generator="base" @selected="presetSelected" />
+        </div>
+      </li>
       <li class="list-group-item">
         <SettingPicker color="primary" v-model="set.mode" name="mode" generator="base" />
         <SettingPicker color="primary" v-model="set.weapons" name="weapons" generator="base" />

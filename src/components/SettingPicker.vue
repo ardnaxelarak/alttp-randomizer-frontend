@@ -20,6 +20,11 @@ export default defineComponent({
     color: "primary",
     generator: null,
   },
+  watch: {
+    modelValue(newValue, oldValue) {
+      this.selected = newValue;
+    },
+  },
   computed: {
     settings() {
       var generatorValue = generatorSettings[this.generator][this.name]
