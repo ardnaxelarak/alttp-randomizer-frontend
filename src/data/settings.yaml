@@ -149,6 +149,8 @@ enemy_shuffle:
       display: None
     shuffled:
       display: Shuffled
+    mimics:
+      display: All Mimics
 small_keys:
   display: Small Key Shuffle
   default: dungeon
