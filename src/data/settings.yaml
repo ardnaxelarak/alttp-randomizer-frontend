@@ -50,21 +50,21 @@ crystals_ganon:
   default: "7"
   order: [7, 6, 5, 4, 3, 2, 1, 0, "random"]
   values:
-    7:
+    "7":
       display: 7
-    6:
+    "6":
       display: 6
-    5:
+    "5":
       display: 5
-    4:
+    "4":
       display: 4
-    3:
+    "3":
       display: 3
-    2:
+    "2":
       display: 2
-    1:
+    "1":
       display: 1
-    0:
+    "0":
       display: 0
     random:
       display: Random
@@ -279,6 +279,22 @@ dark_rooms:
       display: Always in Logic
     starting_lamp:
       display: Starting Lamp
+bombs:
+  display: Bombs
+  default: normal
+  values:
+    normal:
+      display: No Bomb Bag Required
+    bomb_bag_required:
+      display: Bomb Bag Required
+book:
+  display: Book
+  default: normal
+  values:
+    normal:
+      display: No Special Functionality
+    crystal_switches:
+      display: Can Flip Crystal Switches
 door_shuffle:
   display: Door Shuffle
   default: vanilla

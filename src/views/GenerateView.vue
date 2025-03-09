@@ -113,6 +113,8 @@ export default defineComponent({
         <SettingPicker color="primary" v-model="set.boots" name="boots" generator="base" />
         <SettingPicker color="primary" v-model="set.flute" name="flute" generator="base" />
         <SettingPicker color="primary" v-model="set.dark_rooms" name="dark_rooms" generator="base" />
+        <SettingPicker color="primary" v-model="set.bombs" name="bombs" generator="base" />
+        <SettingPicker color="primary" v-model="set.book" name="book" generator="base" />
       </li>
     </ul>
     <div class="card-footer">

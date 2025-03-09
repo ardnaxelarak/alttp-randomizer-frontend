@@ -48,7 +48,7 @@ export default defineComponent({
   },
   methods: {
     change() {
-      this.$emit("update:modelValue", this.selected);
+      this.$emit("update:modelValue", String(this.selected));
     },
   },
 });

@@ -24,6 +24,8 @@ base:
   boots: all
   flute: all
   dark_rooms: all
+  bombs: all
+  book: all
 apr2025:
   mode: ['open', 'standard']
   weapons: all
