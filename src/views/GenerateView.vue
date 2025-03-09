@@ -63,23 +63,34 @@ export default defineComponent({
             v-model="set.linked_drops" name="linked_drops" generator="base" />
       </li>
       <li class="list-group-item">
-        <SettingPicker color="danger" v-model="set.boss_shuffle" name="boss_shuffle" generator="base" />
-        <SettingPicker color="danger" v-model="set.enemy_shuffle" name="enemy_shuffle" generator="base" />
+        <SettingPicker color="danger" v-model="set.door_shuffle" name="door_shuffle" generator="base" />
+        <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"
+            v-model="set.door_lobbies" name="door_lobbies" generator="base" />
+        <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"
+            v-model="set.door_type_mode" name="door_type_mode" generator="base" />
+        <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"
+            v-model="set.trap_door_mode" name="trap_door_mode" generator="base" />
       </li>
       <li class="list-group-item">
-        <SettingPicker color="primary" v-model="set.small_keys" name="small_keys" generator="base" />
-        <SettingPicker color="primary" v-model="set.big_keys" name="big_keys" generator="base" />
-        <SettingPicker color="primary" v-model="set.maps" name="maps" generator="base" />
-        <SettingPicker color="primary" v-model="set.compasses" name="compasses" generator="base" />
+        <SettingPicker color="success" v-model="set.boss_shuffle" name="boss_shuffle" generator="base" />
+        <SettingPicker color="success" v-model="set.enemy_shuffle" name="enemy_shuffle" generator="base" />
       </li>
       <li class="list-group-item">
-        <SettingPicker color="success" v-model="set.shop_shuffle" name="shop_shuffle" generator="base" />
-        <SettingPicker color="success" v-model="set.drop_shuffle" name="drop_shuffle" generator="base" />
-        <SettingPicker color="success" v-model="set.pottery" name="pottery" generator="base" />
-        <SettingPicker color="success" v-model="set.prize_shuffle" name="prize_shuffle" generator="base" />
+        <SettingPicker color="warning" v-model="set.small_keys" name="small_keys" generator="base" />
+        <SettingPicker color="warning" v-model="set.big_keys" name="big_keys" generator="base" />
+        <SettingPicker color="warning" v-model="set.maps" name="maps" generator="base" />
+        <SettingPicker color="warning" v-model="set.compasses" name="compasses" generator="base" />
       </li>
       <li class="list-group-item">
-        <SettingPicker color="warning" v-model="set.boots" name="boots" generator="base" />
+        <SettingPicker color="danger" v-model="set.shop_shuffle" name="shop_shuffle" generator="base" />
+        <SettingPicker color="danger" v-model="set.drop_shuffle" name="drop_shuffle" generator="base" />
+        <SettingPicker color="danger" v-model="set.pottery" name="pottery" generator="base" />
+        <SettingPicker color="danger" v-model="set.prize_shuffle" name="prize_shuffle" generator="base" />
+      </li>
+      <li class="list-group-item">
+        <SettingPicker color="primary" v-model="set.boots" name="boots" generator="base" />
+        <SettingPicker color="primary" v-model="set.flute" name="flute" generator="base" />
+        <SettingPicker color="primary" v-model="set.dark_rooms" name="dark_rooms" generator="base" />
       </li>
     </ul>
     <div class="card-footer">

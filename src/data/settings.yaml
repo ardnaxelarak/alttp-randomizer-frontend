@@ -253,3 +253,73 @@ boots:
       display: Pseudoboots
     starting:
       display: Starting Boots
+flute:
+  display: Flute
+  default: normal
+  values:
+    normal:
+      display: Flute Needs Activation
+    preactivated:
+      display: Preactivated
+    starting:
+      display: Starting Activated Flute
+dark_rooms:
+  display: Dark Room Logic
+  default: require_lamp
+  values:
+    require_lamp:
+      display: Lamp Required
+    always_light_cone:
+      display: Free Light Cone
+    no_dark_rooms:
+      display: All Rooms Lit
+    always_in_logic:
+      display: Always in Logic
+    starting_lamp:
+      display: Starting Lamp
+door_shuffle:
+  display: Door Shuffle
+  default: vanilla
+  values:
+    vanilla:
+      display: None
+    basic:
+      display: Basic
+    paired:
+      display: Paired
+    partitioned:
+      display: Partitioned
+    crossed:
+      display: Crossed
+door_lobbies:
+  display: Dungeon Lobbies
+  default: vanilla
+  values:
+    vanilla:
+      display: Vanilla
+    shuffled:
+      display: Shuffled
+door_type_mode:
+  display: Shuffled Door Types
+  default: big
+  values:
+    original:
+      display: Key and Bomb Doors
+    big:
+      display: Key, Big Key, and Bomb Doors
+    all:
+      display: All Door Types
+    chaos:
+      display: Chaos
+trap_door_mode:
+  display: Trap Door Removal
+  default: optional
+  values:
+    vanilla:
+      display: None
+    optional:
+      display: Some
+    boss:
+      display: Boss
+    remove_all:
+      display: All

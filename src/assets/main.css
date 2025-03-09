@@ -21,3 +21,8 @@
 .toggle {
   margin-top: 0.35em;
 }
+
+.btn-outline-warning {
+  --bs-btn-color: #880;
+  --bs-btn-active-color: #550;
+}

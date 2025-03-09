@@ -181,7 +181,9 @@ export default defineComponent({
           </div>
         </li>
         <li v-if="settings" class="list-group-item">
-          <SeedSettings :settings="settings" />
+          <div class="mb-1">
+            <SeedSettings :settings="settings" />
+          </div>
         </li>
         <li class="list-group-item">
           <div class="mb-2">

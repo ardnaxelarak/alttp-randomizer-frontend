@@ -7,6 +7,10 @@ base:
   entrance_shuffle: all
   skull_woods: all
   linked_drops: all
+  door_shuffle: all
+  door_lobbies: all
+  door_type_mode: all
+  trap_door_mode: all
   boss_shuffle: all
   enemy_shuffle: all
   small_keys: all
@@ -18,6 +22,8 @@ base:
   pottery: all
   prize_shuffle: all
   boots: all
+  flute: all
+  dark_rooms: all
 apr2025:
   mode: ['open', 'standard']
   weapons: all

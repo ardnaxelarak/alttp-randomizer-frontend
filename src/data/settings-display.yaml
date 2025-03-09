@@ -31,6 +31,15 @@ entrance_shuffle:
   crossed: Crossed Entrance Shuffle
   swapped: Swapped Entrance Shuffle
   decoupled: Decoupled Entrance Shuffle
+door_shuffle:
+  vanilla: Vanilla Doors
+  basic: Basic Door Shuffle
+  paired: Paired Door Shuffle
+  partitioned: Partitioned Door Shuffle
+  crossed: Crossed Door Shuffle
+door_lobbies:
+  Vanilla: Vanilla Dungeon Lobbies
+  Shuffled: Shuffled Dungeon Lobbies
 enemy_shuffle:
   vanilla: Vanilla Enemies
   shuffled: Shuffled Enemies
@@ -46,3 +55,8 @@ dungeon_items:
   wild: Wild
   nearby: Nearby
   universal: Universal
+prize_shuffle:
+  vanilla: Prizes on Bosses
+  dungeon: Prizes Shuffled in Dungeon
+  nearby: Prizes Shuffled Nearby
+  wild: Wild Prizes
