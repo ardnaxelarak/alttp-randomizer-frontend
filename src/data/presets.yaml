@@ -18,3 +18,14 @@ base:
     weapons: assured
     goal: fast_ganon
     crystals_ganon: 0
+  mimic_hellrule:
+    display: Mimic Hellrule
+    mode: standard
+    door_shuffle: crossed
+    door_lobbies: shuffled
+    door_type_mode: all
+    trap_door_mode: optional
+    enemy_shuffle: mimics
+    drop_shuffle: keys
+    pottery: keys
+    dark_rooms: always_light_cone

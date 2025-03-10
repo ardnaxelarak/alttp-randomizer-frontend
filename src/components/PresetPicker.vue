@@ -21,7 +21,11 @@ export default defineComponent({
     generator: null,
   },
   async mounted() {
-    this.localPresets = await localforage.getItem("local_presets") ?? [];
+    this.localPresets = await localforage.getItem(`local_presets_${this.generator}`) ?? [];
+    for (const preset of this.localPresets) {
+      this.fillPreset(preset);
+    }
+    await this.updateLocalPresets();
   },
   computed: {
     settings() {
@@ -46,11 +50,8 @@ export default defineComponent({
     presets() {
       const filledPresets = {};
       for (const presetName of Object.keys(presets[this.generator])) {
-        const preset = {};
-        preset.display = presets[this.generator][presetName].display;
-        for (const settingName of Object.keys(this.settings)) {
-          preset[settingName] = presets[this.generator][presetName][settingName] ?? this.settings[settingName].default;
-        }
+        const preset = JSON.parse(JSON.stringify(presets[this.generator][presetName]));
+        this.fillPreset(preset);
         filledPresets[presetName] = preset;
       }
       return filledPresets;
@@ -111,7 +112,15 @@ export default defineComponent({
     },
     async updateLocalPresets() {
       const copy = JSON.parse(JSON.stringify(this.localPresets));
-      await localforage.setItem("local_presets", copy);
+      await localforage.setItem(`local_presets_${this.generator}`, copy);
+    },
+    fillPreset(preset) {
+      for (const settingName of Object.keys(this.settings)) {
+        if (preset[settingName] == undefined) {
+          preset[settingName] = this.settings[settingName].default;
+        }
+      }
+      return preset;
     },
   },
 });
