@@ -4,11 +4,13 @@ import { defineComponent } from "vue";
 import axios from "axios";
 import { Modal } from "bootstrap";
 
+import AccordionItem from "@/components/AccordionItem.vue";
 import PresetPicker from "@/components/PresetPicker.vue";
 import SettingPicker from "@/components/SettingPicker.vue";
 
 export default defineComponent({
   components: {
+    AccordionItem,
     PresetPicker,
     SettingPicker,
   },
@@ -121,31 +123,41 @@ export default defineComponent({
     <div class="card-header">
       Generate Seed
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <div class="mb-2 mt-2">
-          <PresetPicker ref="preset" generator="base" @selected="presetSelected"
-              @save="savePreset" />
-        </div>
-      </li>
-      <li class="list-group-item">
+    <div id="settings" class="accordion accordion-flush">
+      <AccordionItem>
+        <PresetPicker ref="preset" generator="base" @selected="presetSelected"
+            @save="savePreset" />
+      </AccordionItem>
+      <AccordionItem :expanded="true">
+        <template #header>
+          <b>World:</b>
+        </template>
         <SettingPicker color="primary" v-model="set.mode" name="mode" generator="base" />
         <SettingPicker color="primary" v-model="set.weapons" name="weapons" generator="base" />
-      </li>
-      <li class="list-group-item">
+      </AccordionItem>
+      <AccordionItem :expanded="true">
+        <template #header>
+          <b>Goal:</b>
+        </template>
         <SettingPicker color="success" v-model="set.goal" name="goal" generator="base" />
         <SettingPicker color="success" v-if="['ganon', 'fast_ganon'].includes(this.set.goal)" 
             v-model="set.crystals_ganon" name="crystals_ganon" generator="base" />
         <SettingPicker color="success" v-model="set.crystals_gt" name="crystals_gt" generator="base" />
-      </li>
-      <li class="list-group-item">
+      </AccordionItem>
+      <AccordionItem :expanded="false">
+        <template #header>
+          <b>Entrance Shuffle:</b>
+        </template>
         <SettingPicker color="warning" v-model="set.entrance_shuffle" name="entrance_shuffle" generator="base" />
         <SettingPicker color="warning" v-if="this.set.entrance_shuffle != 'vanilla'"
             v-model="set.skull_woods" name="skull_woods" generator="base" />
         <SettingPicker color="warning" v-if="this.set.entrance_shuffle != 'vanilla'"
             v-model="set.linked_drops" name="linked_drops" generator="base" />
-      </li>
-      <li class="list-group-item">
+      </AccordionItem>
+      <AccordionItem :expanded="false">
+        <template #header>
+          <b>Dungeon Shuffle:</b>
+        </template>
         <SettingPicker color="danger" v-model="set.door_shuffle" name="door_shuffle" generator="base" />
         <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"
             v-model="set.door_lobbies" name="door_lobbies" generator="base" />
@@ -153,31 +165,43 @@ export default defineComponent({
             v-model="set.door_type_mode" name="door_type_mode" generator="base" />
         <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"
             v-model="set.trap_door_mode" name="trap_door_mode" generator="base" />
-      </li>
-      <li class="list-group-item">
+      </AccordionItem>
+      <AccordionItem :expanded="false">
+        <template #header>
+          <b>Enemizer:</b>
+        </template>
         <SettingPicker color="success" v-model="set.boss_shuffle" name="boss_shuffle" generator="base" />
         <SettingPicker color="success" v-model="set.enemy_shuffle" name="enemy_shuffle" generator="base" />
-      </li>
-      <li class="list-group-item">
+      </AccordionItem>
+      <AccordionItem :expanded="false">
+        <template #header>
+          <b>Dungeon Item Shuffle:</b>
+        </template>
         <SettingPicker color="warning" v-model="set.small_keys" name="small_keys" generator="base" />
         <SettingPicker color="warning" v-model="set.big_keys" name="big_keys" generator="base" />
         <SettingPicker color="warning" v-model="set.maps" name="maps" generator="base" />
         <SettingPicker color="warning" v-model="set.compasses" name="compasses" generator="base" />
-      </li>
-      <li class="list-group-item">
+      </AccordionItem>
+      <AccordionItem :expanded="false">
+        <template #header>
+          <b>Other Pool Settings:</b>
+        </template>
         <SettingPicker color="danger" v-model="set.shop_shuffle" name="shop_shuffle" generator="base" />
         <SettingPicker color="danger" v-model="set.drop_shuffle" name="drop_shuffle" generator="base" />
         <SettingPicker color="danger" v-model="set.pottery" name="pottery" generator="base" />
         <SettingPicker color="danger" v-model="set.prize_shuffle" name="prize_shuffle" generator="base" />
-      </li>
-      <li class="list-group-item">
+      </AccordionItem>
+      <AccordionItem :expanded="false">
+        <template #header>
+          <b>Item Settings:</b>
+        </template>
         <SettingPicker color="primary" v-model="set.boots" name="boots" generator="base" />
         <SettingPicker color="primary" v-model="set.flute" name="flute" generator="base" />
         <SettingPicker color="primary" v-model="set.dark_rooms" name="dark_rooms" generator="base" />
         <SettingPicker color="primary" v-model="set.bombs" name="bombs" generator="base" />
         <SettingPicker color="primary" v-model="set.book" name="book" generator="base" />
-      </li>
-    </ul>
+      </AccordionItem>
+    </div>
     <div class="card-footer">
       <div class="nav nav-pills nav-fill" role="group">
         <button type="button" class="m-1 nav-item btn btn-outline-danger"

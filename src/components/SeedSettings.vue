@@ -24,11 +24,10 @@ export default defineComponent({
           || (this.settings.boss_shuffle && this.settings.boss_shuffle != "vanilla");
     },
     dungeonItemsShuffled() {
-      return (this.settings.small_keys && this.settings.small_keys != "dungeons")
-          || (this.settings.big_keys && this.settings.big_keys != "dungeons")
-          || (this.settings.maps && this.settings.maps != "dungeons")
-          || (this.settings.compasses && this.settings.compasses != "dungeons")
-          || (this.settings.compasses && this.settings.compasses != "dungeons")
+      return (this.settings.small_keys && this.settings.small_keys != "dungeon")
+          || (this.settings.big_keys && this.settings.big_keys != "dungeon")
+          || (this.settings.maps && this.settings.maps != "dungeon")
+          || (this.settings.compasses && this.settings.compasses != "dungeon")
           || (this.settings.prize_shuffle && this.settings.prize_shuffle != "vanilla");
     }
   },
