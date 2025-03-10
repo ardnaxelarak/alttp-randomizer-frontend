@@ -21,6 +21,7 @@ base:
   mimic_hellrule:
     display: Mimic Hellrule
     mode: standard
+    goal: sanctuary
     door_shuffle: crossed
     door_lobbies: shuffled
     door_type_mode: all

@@ -45,6 +45,8 @@ goal:
       display: Ganon Hunt
     completionist:
       display: Completionist
+    sanctuary:
+      display: Sanctuary
 crystals_ganon:
   display: Crystals for Ganon
   default: "7"
