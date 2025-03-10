@@ -21,8 +21,9 @@ export default defineComponent({
     generator: null,
   },
   watch: {
-    modelValue(newValue, oldValue) {
+    async modelValue(newValue, oldValue) {
       this.selected = newValue;
+      await this.updateLocalForage();
     },
   },
   computed: {
@@ -42,13 +43,17 @@ export default defineComponent({
       }
     },
   },
-  mounted() {
-    this.selected = this.settings.default;
+  async mounted() {
+    this.selected = await localforage.getItem(`setting_${this.name}`) ?? this.settings.default;
     this.change();
   },
   methods: {
-    change() {
+    async change() {
       this.$emit("update:modelValue", String(this.selected));
+      await this.updateLocalForage();
+    },
+    async updateLocalForage() {
+      await localforage.setItem(`setting_${this.name}`, this.selected);
     },
   },
 });
