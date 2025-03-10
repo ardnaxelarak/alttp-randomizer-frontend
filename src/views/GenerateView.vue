@@ -2,6 +2,7 @@
 import { defineComponent } from "vue";
 
 import axios from "axios";
+import { Modal } from "bootstrap";
 
 import PresetPicker from "@/components/PresetPicker.vue";
 import SettingPicker from "@/components/SettingPicker.vue";
@@ -14,10 +15,15 @@ export default defineComponent({
   data() {
     return {
       set: {},
+      existingLocalPresets: [],
+      newPresetName: "",
+      replacePreset: null,
+      modal: null,
     };
   },
   mounted() {
-    document.title = "ALttPRandomizer";
+    document.title = "ALttPRandomizer"
+    this.modal = new Modal(document.getElementById("savePresetModal"), {});
   },
   watch: {
     set: {
@@ -52,11 +58,65 @@ export default defineComponent({
         }
       }
     },
+    savePreset(names) {
+      this.newPresetName = "";
+      this.existingLocalPresets = names;
+      this.modal.show();
+    },
+    async modalSavePreset() {
+      const preset = JSON.parse(JSON.stringify(this.set));
+      preset.display = this.newPresetName;
+      if (this.replacePreset != null) {
+        preset.display = this.existingLocalPresets[this.replacePreset];
+      }
+      await this.$refs.preset.savePreset(this.replacePreset, preset);
+      this.modal.hide();
+    },
   },
 });
 </script>
 
 <template>
+  <div class="modal" tabindex="-1" id="savePresetModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Save Preset</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <select v-model="replacePreset" class="form-select">
+              <option :value="null" selected>New</option>
+              <optgroup v-if="existingLocalPresets.length" label="Overwrite Preset:">
+                <template v-for="(preset, idx) of existingLocalPresets">
+                  <option :value="idx">
+                    {{ preset }}
+                  </option>
+                </template>
+              </optgroup>
+            </select>
+          </div>
+          <div class="input-group mb-3" v-if="replacePreset == null">
+            <label class="input-group-text" for="new-preset-name">
+              Name
+            </label>
+            <input type="text" class="form-control" placeholder="Display Name"
+                id="new-preset-name" v-model="newPresetName" autocomplete="off" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Cancel
+          </button>
+          <button :disabled="replacePreset == null && newPresetName.length == 0" type="button"
+              class="btn btn-primary" @click="modalSavePreset">
+            Save Preset
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="card content-div m-3">
     <div class="card-header">
       Generate Seed
@@ -64,7 +124,8 @@ export default defineComponent({
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
         <div class="mb-2 mt-2">
-          <PresetPicker ref="preset" generator="base" @selected="presetSelected" />
+          <PresetPicker ref="preset" generator="base" @selected="presetSelected"
+              @save="savePreset" />
         </div>
       </li>
       <li class="list-group-item">

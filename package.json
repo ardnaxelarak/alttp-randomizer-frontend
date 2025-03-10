@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^1.8.1",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "bps": "^2.0.1",
     "center-align": "^1.0.1",
     "crc-32": "^1.2.2",
