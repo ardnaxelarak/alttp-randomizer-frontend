@@ -26,3 +26,13 @@
   --bs-btn-color: #880;
   --bs-btn-active-color: #550;
 }
+
+.sprite-preview-icon {
+  display: inline;
+  float: left;
+  padding-right: 0.7em;
+}
+
+.sprite-preview-name {
+  padding-left: 0.7em;
+}

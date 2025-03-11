@@ -12,8 +12,8 @@ export default class ZSPR {
   }
 
   _parse() {
-    this.gfxOffset = (this.patch[12] << 24) | (this.patch[11] << 16) | (this.patch[10] << 8) | this.patch[9];
-    this.palOffset = (this.patch[18] << 24) | (this.patch[17] << 16) | (this.patch[16] << 8) | this.patch[15];
+    this.gfxOffset = ((this.patch[12] << 24) | (this.patch[11] << 16) | (this.patch[10] << 8) | this.patch[9]) >>> 0;
+    this.palOffset = ((this.patch[18] << 24) | (this.patch[17] << 16) | (this.patch[16] << 8) | this.patch[15]) >>> 0;
     const metadataOffset = 0x1D;
     const dec8 = new TextDecoder("utf-8");
     const dec16 = new TextDecoder("utf-16");

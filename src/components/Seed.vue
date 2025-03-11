@@ -33,7 +33,6 @@ export default defineComponent({
       rom_checksum: "3322EFFC",
       baserom: null,
       baserom_error: null,
-      sprite: null,
       patch: null,
       error: null,
       settings: null,
@@ -54,7 +53,6 @@ export default defineComponent({
     }
 
     await this.fetchSeed();
-
   },
   computed: {
     permalink() {
@@ -121,15 +119,10 @@ export default defineComponent({
       }.bind(this);
       reader.readAsArrayBuffer(file);
     },
-    spriteUpdate(sprite) {
-      this.sprite = sprite;
-    },
     async patchRom() {
       var rom = bps.apply(this.patch, this.baserom);
 
-      if (this.sprite) {
-        this.sprite.apply(rom);
-      }
+      await this.$refs.spritepicker.patch(rom);
 
       this.$refs.heartbeep.patch(rom);
       this.$refs.heartcolor.patch(rom);
@@ -187,7 +180,7 @@ export default defineComponent({
         </li>
         <li class="list-group-item">
           <div class="mb-2">
-            <SpritePicker @spriteUpdate="spriteUpdate" />
+            <SpritePicker ref="spritepicker" />
           </div>
         </li>
         <li class="list-group-item">
