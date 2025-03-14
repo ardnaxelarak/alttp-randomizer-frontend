@@ -13,8 +13,8 @@ export default defineComponent({
   },
   data() {
     return {
-      worlds: [{}, {}, {}],
-      worldCount: 3,
+      worlds: [{}, {}],
+      worldCount: 2,
     };
   },
   async mounted() {
@@ -27,6 +27,18 @@ export default defineComponent({
     }
   },
   methods: {
+    async addWorld() {
+      const newname = await localforage.getItem(`world_${this.worldCount + 1}_setting_player_name`);
+      this.worlds.push({player_name: newname});
+      this.worldCount++;
+
+      await new Promise(r => setTimeout(r, 100));
+      this.worlds[this.worldCount - 1].player_name = newname;
+    },
+    async removeWorld() {
+      this.worldCount--;
+      this.worlds.pop();
+    },
     async playerNameUpdated(num) {
       await localforage.setItem(`world_${num + 1}_setting_player_name`, this.worlds[num].player_name);
     },
@@ -64,13 +76,20 @@ export default defineComponent({
     <div class="card-header">
       Generate Multiworld
     </div>
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs ps-3 pt-3 pe-3">
       <li v-for="(n, idx) in worldCount" class="nav-item" role="presentation">
         <button class="nav-link" :class="{active: idx == 0}" data-bs-toggle="tab"
             :data-bs-target="`#world_page_${n}`" type="button" role="tab">
           {{ worlds[idx]?.player_name ?? n }}
+          <button v-if="n == worldCount && n > 2" @click="removeWorld"
+              class="badge btn rounded-pill text-bg-danger">
+            <i class="bi bi-trash"></i>
+          </button>
         </button>
       </li>
+      <button class="nav-link" type="button" role="tab" @click="addWorld">
+        <i class="bi bi-plus"></i>
+      </button>
     </ul>
     <div class="tab-content">
       <template v-for="(n, idx) in worldCount">
