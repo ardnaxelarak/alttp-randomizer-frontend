@@ -112,13 +112,13 @@ skull_woods:
   default: original
   values:
     original:
-      display: Original
+      display: Shuffled in SW
     restricted:
-      display: Restricted
+      display: Vanilla Drops
     loose:
-      display: Loose
+      display: Vanilla Drops, Loose Entrances
     follow_linked:
-      display: Follow Linked
+      display: Chaos
 linked_drops:
   display: Linked Drops
   default: unset
@@ -343,3 +343,11 @@ trap_door_mode:
       display: Boss
     remove_all:
       display: All
+hints:
+  display: Hints
+  default: off
+  values:
+    off:
+      display: Off
+    on:
+      display: On

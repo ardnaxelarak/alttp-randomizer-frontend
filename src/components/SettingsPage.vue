@@ -137,6 +137,7 @@ export default defineComponent({
       </template>
       <SettingPicker color="primary" v-model="set.mode" name="mode" generator="base" :prefix="prefix" />
       <SettingPicker color="primary" v-model="set.weapons" name="weapons" generator="base" :prefix="prefix" />
+      <SettingPicker color="primary" v-model="set.hints" name="hints" generator="base" :prefix="prefix" />
     </AccordionItem>
     <AccordionItem :expanded="true">
       <template #header>

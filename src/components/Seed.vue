@@ -8,6 +8,7 @@ import QuickswapPicker from "@/components/QuickswapPicker.vue";
 import ReduceFlashingPicker from "@/components/ReduceFlashingPicker.vue";
 import BackgroundMusicPicker from "@/components/BackgroundMusicPicker.vue";
 import MsuResumePicker from "@/components/MsuResumePicker.vue";
+import CollectionRatePicker from "@/components/CollectionRatePicker.vue";
 
 import SeedSettings from "@/components/SeedSettings.vue";
 
@@ -27,6 +28,7 @@ export default defineComponent({
     ReduceFlashingPicker,
     BackgroundMusicPicker,
     MsuResumePicker,
+    CollectionRatePicker,
   },
   data() {
     return {
@@ -35,7 +37,7 @@ export default defineComponent({
       baserom_error: null,
       patch: null,
       error: null,
-      settings: null,
+      settings: {},
       multi: null,
     };
   },
@@ -58,6 +60,12 @@ export default defineComponent({
   computed: {
     permalink() {
       return `/seed/${this.id}`;
+    },
+    allow_cr() {
+      if (["triforce_hunt", "trinity", "ganon_hunt"].includes(this.settings.goal)) {
+        return false;
+      }
+      return true;
     },
   },
   methods: {
@@ -133,6 +141,10 @@ export default defineComponent({
       this.$refs.reduce_flashing.patch(rom);
       this.$refs.quickswap.patch(rom);
 
+      if (this.allow_cr) {
+        this.$refs.cr.patch(rom);
+      }
+
       // fast multijunk, too lazy to make it a setting rn
       rom[0x1800AF] = 0x10;
 
@@ -204,6 +216,7 @@ export default defineComponent({
             <MsuResumePicker ref="msu_resume" />
             <ReduceFlashingPicker ref="reduce_flashing" />
             <QuickswapPicker ref="quickswap" />
+            <CollectionRatePicker v-if="allow_cr" ref="cr" />
           </div>
         </li>
         <li class="list-group-item">
