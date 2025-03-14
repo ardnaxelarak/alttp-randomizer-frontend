@@ -7,6 +7,7 @@ import mustache from "mustache";
 export default defineComponent({
   props: {
     settings: {},
+    multi: null,
   },
   computed: {
     settingsDisplay() {
@@ -29,7 +30,14 @@ export default defineComponent({
           || (this.settings.maps && this.settings.maps != "dungeon")
           || (this.settings.compasses && this.settings.compasses != "dungeon")
           || (this.settings.prize_shuffle && this.settings.prize_shuffle != "vanilla");
-    }
+    },
+    multilink() {
+      if (this.multi) {
+        return `/multi/${this.multi}`;
+      } else {
+        return null;
+      }
+    },
   },
   methods: {
   }
@@ -37,6 +45,10 @@ export default defineComponent({
 </script>
 
 <template>
+  <div v-if="multi">
+    Part of Multiworld: <a :href="multilink">{{ multilink }}</a>
+    <hr class="mt-2 mb-2" />
+  </div>
   <div v-if="settings.randomizer && settingsDisplay.randomizer[settings.randomizer]">
     {{ settingsDisplay.randomizer[settings.randomizer] }}
     <hr class="mt-2 mb-2" />

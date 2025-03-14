@@ -36,6 +36,7 @@ export default defineComponent({
       patch: null,
       error: null,
       settings: null,
+      multi: null,
     };
   },
   props: {
@@ -63,6 +64,7 @@ export default defineComponent({
     dataLoaded(patch, seedData) {
       this.patch = patch;
       this.settings = seedData.settings;
+      this.multi = seedData.parent;
     },
     async fetchSeed() {
       await axios.get(`/seed/${this.id}`)
@@ -175,7 +177,7 @@ export default defineComponent({
         </li>
         <li v-if="settings" class="list-group-item">
           <div class="mb-1">
-            <SeedSettings :settings="settings" />
+            <SeedSettings :settings="settings" :multi="multi" />
           </div>
         </li>
         <li class="list-group-item">

@@ -1,15 +1,15 @@
 <script>
 import { defineComponent } from 'vue';
 
-import Seed from "@/components/Seed.vue";
+import Multi from "@/components/Multi.vue";
 
 export default defineComponent({
   components: {
-    Seed,
+    Multi,
   },
 });
 </script>
 
 <template>
-  <Seed :id="$route.params.id" />
+  <Multi :id="$route.params.id" />
 </template>

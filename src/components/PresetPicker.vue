@@ -69,6 +69,9 @@ export default defineComponent({
     },
     settingsMatch(newSettings, preset) {
       for (const settingName of Object.keys(newSettings)) {
+        if (settingName == "player_name") {
+          continue;
+        }
         if (preset[settingName] != newSettings[settingName]) {
           return false;
         }
