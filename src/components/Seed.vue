@@ -133,6 +133,9 @@ export default defineComponent({
       this.$refs.reduce_flashing.patch(rom);
       this.$refs.quickswap.patch(rom);
 
+      // fast multijunk, too lazy to make it a setting rn
+      rom[0x1800AF] = 0x10;
+
       // Fix Checksum
       const sum = rom.reduce(function(sum, mbyte, i) {
         if (i >= 0x7fdc && i < 0x7fe0) {

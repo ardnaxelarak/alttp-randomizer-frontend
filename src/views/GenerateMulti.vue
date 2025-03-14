@@ -52,8 +52,8 @@ export default defineComponent({
         for (const setting of Object.keys(this.worlds[i])) {
           world[setting] = this.worlds[i][setting];
         }
-        if (!world.player_name) {
-          world.player_name = `Player ${i + 1}`;
+        if (!world.player_name || !world.player_name.length) {
+          world.player_name = `P${i + 1}`;
         }
         settings.push(world);
       }
@@ -80,7 +80,12 @@ export default defineComponent({
       <li v-for="(n, idx) in worldCount" class="nav-item" role="presentation">
         <button class="nav-link" :class="{active: idx == 0}" data-bs-toggle="tab"
             :data-bs-target="`#world_page_${n}`" type="button" role="tab">
-          {{ worlds[idx]?.player_name ?? n }}
+          <template v-if="worlds[idx] && worlds[idx].player_name && worlds[idx].player_name.length">
+            {{ worlds[idx].player_name }}
+          </template>
+          <template v-else>
+            {{ n }}
+          </template>
           <button v-if="n == worldCount && n > 2" @click="removeWorld"
               class="badge btn rounded-pill text-bg-danger">
             <i class="bi bi-trash"></i>
