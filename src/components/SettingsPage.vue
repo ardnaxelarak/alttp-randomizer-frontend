@@ -162,7 +162,7 @@ export default defineComponent({
       <template #header>
         <b>Dungeon Shuffle:</b>
       </template>
-      <SettingPicker color="danger" v-model="set.door_shuffle" name="door_shuffle" generator="base" />
+      <SettingPicker color="danger" v-model="set.door_shuffle" name="door_shuffle" generator="base" :prefix="prefix" />
       <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"
           v-model="set.door_lobbies" name="door_lobbies" generator="base" :prefix="prefix" />
       <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"

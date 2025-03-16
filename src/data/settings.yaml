@@ -305,8 +305,6 @@ door_shuffle:
       display: None
     basic:
       display: Basic
-    paired:
-      display: Paired
     partitioned:
       display: Partitioned
     crossed:
@@ -321,7 +319,7 @@ door_lobbies:
       display: Shuffled
 door_type_mode:
   display: Shuffled Door Types
-  default: big
+  default: original
   values:
     original:
       display: Key and Bomb Doors
