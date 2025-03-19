@@ -9,6 +9,7 @@ import ReduceFlashingPicker from "@/components/ReduceFlashingPicker.vue";
 import BackgroundMusicPicker from "@/components/BackgroundMusicPicker.vue";
 import MsuResumePicker from "@/components/MsuResumePicker.vue";
 import CollectionRatePicker from "@/components/CollectionRatePicker.vue";
+import Spoiler from "@/components/Spoiler.vue";
 
 import SeedSettings from "@/components/SeedSettings.vue";
 
@@ -29,6 +30,7 @@ export default defineComponent({
     BackgroundMusicPicker,
     MsuResumePicker,
     CollectionRatePicker,
+    Spoiler,
   },
   data() {
     return {
@@ -38,7 +40,9 @@ export default defineComponent({
       patch: null,
       error: null,
       settings: {},
+      spoiler: {},
       multi: null,
+      show_spoiler: false,
     };
   },
   props: {
@@ -73,6 +77,7 @@ export default defineComponent({
       this.patch = patch;
       this.settings = seedData.settings;
       this.multi = seedData.parent;
+      this.spoiler = seedData.spoiler;
     },
     async fetchSeed() {
       await axios.get(`/seed/${this.id}`)
@@ -167,7 +172,15 @@ export default defineComponent({
       link.href = URL.createObjectURL(blob);
       link.download = `GK_${this.id}.sfc`;
       link.click();
-    }
+    },
+    async downloadSpoiler() {
+      const spoiler = JSON.stringify(this.spoiler, null, 2);
+      const blob = new Blob([spoiler], { type: 'application/json' });
+      const link = document.getElementById('downloader');
+      link.href = URL.createObjectURL(blob);
+      link.download = `GK_${this.id}_spoiler.json`;
+      link.click();
+    },
   }
 });
 </script>
@@ -223,6 +236,15 @@ export default defineComponent({
           <button type="submit" class="btn btn-primary submit-btn" :disabled="!baserom || !patch" @click="patchRom">
             Download Seed!
           </button>
+          <template v-if="spoiler">
+            <button type="button" class="btn btn-secondary ms-3" @click="downloadSpoiler">
+              Download Spoiler
+            </button>
+            <button type="button" class="btn btn-secondary" @click="show_spoiler = !show_spoiler" style="float: right;">
+              <i v-if="show_spoiler" class="bi bi-chevron-up"></i>
+              <i v-else class="bi bi-chevron-down"></i>
+            </button>
+          </template>
           <a id="downloader" style="display: none;" />
         </li>
       </ul>
@@ -233,6 +255,9 @@ export default defineComponent({
     <div v-else>
       <img class="center" src="/bludormspinbig.gif" />
     </div>
+  </div>
+  <div v-if="patch && spoiler && show_spoiler" class="mw-60">
+    <Spoiler :spoiler="spoiler" />
   </div>
 </template>
 

@@ -118,11 +118,11 @@ export default defineComponent({
       <div class="nav nav-pills nav-fill" role="group">
         <button type="button" class="m-1 nav-item btn btn-outline-danger"
             @click="generate(true);">
-          Generate Race ROM
+          Generate Race Multiworld
         </button>
         <button type="button" class="m-1 nav-item btn btn-outline-primary"
             @click="generate(false);">
-          Generate ROM
+          Generate Multiworld
         </button>
       </div>
     </div>
