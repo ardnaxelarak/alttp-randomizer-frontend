@@ -234,11 +234,11 @@ export default defineComponent({
         </li>
         <li class="list-group-item">
           <button type="submit" class="btn btn-primary submit-btn" :disabled="!baserom || !patch" @click="patchRom">
-            Download Seed!
+            Download
           </button>
           <template v-if="spoiler">
             <button type="button" class="btn btn-secondary ms-3" @click="downloadSpoiler">
-              Download Spoiler
+              Spoiler
             </button>
             <button type="button" class="btn btn-secondary" @click="show_spoiler = !show_spoiler" style="float: right;">
               <i v-if="show_spoiler" class="bi bi-chevron-up"></i>

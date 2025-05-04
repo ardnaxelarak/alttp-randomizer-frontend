@@ -29,7 +29,7 @@ base:
   hints: all
 apr2025:
   mode: ['open', 'standard']
-  weapons: all
+  weapons: ['random', 'assured', 'vanilla']
   crystals_ganon: all
   entrance_shuffle: ['vanilla', 'crossed']
   dungeon_item_shuffle:
@@ -41,3 +41,4 @@ apr2025:
       wild:
         display: Wild
   boots: ['normal', 'pseudoboots']
+  hints: all

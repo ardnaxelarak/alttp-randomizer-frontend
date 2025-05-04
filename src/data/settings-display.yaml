@@ -23,6 +23,7 @@ weapons:
   assured: Assured Sword
   vanilla: Vanilla Swords
   swordless: Swordless
+  assured_master: Starting Master Sword
 mode:
   open: Open
   standard: Standard

@@ -49,6 +49,7 @@ export default defineComponent({
       <li class="list-group-item">
         <SettingPicker color="primary" v-model="set.mode" name="mode" generator="apr2025" />
         <SettingPicker color="primary" v-model="set.weapons" name="weapons" generator="apr2025" />
+        <SettingPicker color="primary" v-model="set.hints" name="hints" generator="apr2025" />
       </li>
       <li class="list-group-item">
         <SettingPicker color="success" v-model="set.crystals_ganon" name="crystals_ganon" generator="apr2025" />

@@ -27,6 +27,8 @@ weapons:
       display: Vanilla
     swordless:
       display: Swordless
+    assured_master:
+      display: Assured Master
 goal:
   display: Goal
   default: ganon
