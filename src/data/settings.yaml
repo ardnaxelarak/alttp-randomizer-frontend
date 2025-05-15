@@ -343,6 +343,14 @@ trap_door_mode:
       display: Boss
     remove_all:
       display: All
+follower_shuffle:
+  display: Follower Shuffle
+  default: vanilla
+  values:
+    vanilla:
+      display: None
+    shuffled:
+      display: Shuffled
 hints:
   display: Hints
   default: off

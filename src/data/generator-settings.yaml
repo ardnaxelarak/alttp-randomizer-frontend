@@ -26,6 +26,7 @@ base:
   dark_rooms: all
   bombs: all
   book: all
+  follower_shuffle: all
   hints: all
 apr2025:
   mode: ['open', 'standard']
