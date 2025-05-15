@@ -194,6 +194,7 @@ export default defineComponent({
       <SettingPicker color="danger" v-model="set.drop_shuffle" name="drop_shuffle" generator="base" :prefix="prefix" />
       <SettingPicker color="danger" v-model="set.pottery" name="pottery" generator="base" :prefix="prefix" />
       <SettingPicker color="danger" v-model="set.prize_shuffle" name="prize_shuffle" generator="base" :prefix="prefix" />
+      <SettingPicker color="danger" v-model="set.follower_shuffle" name="follower_shuffle" generator="base" :prefix="prefix" />
     </AccordionItem>
     <AccordionItem :expanded="false">
       <template #header>

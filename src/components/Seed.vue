@@ -39,6 +39,7 @@ export default defineComponent({
       baserom_error: null,
       patch: null,
       error: null,
+      retry: false,
       settings: {},
       spoiler: {},
       multi: null,
@@ -73,6 +74,20 @@ export default defineComponent({
     },
   },
   methods: {
+    async retryGeneration() {
+      await axios.post(`/seed/${this.id}`, {}, {
+        headers: {
+          "Content-Type": "text/pain",
+        }
+      })
+        .then(response => {
+          this.$router.go();
+        })
+        .catch(error => {
+          console.log(error);
+          this.$router.go();
+        });
+    },
     dataLoaded(patch, seedData) {
       this.patch = patch;
       this.settings = seedData.settings;
@@ -106,7 +121,12 @@ export default defineComponent({
             // still generating, try again
             setTimeout(this.fetchSeed.bind(this), 2000);
           } else {
-            this.error = "Seed not found. :(";
+            if (error.response?.data?.retry) {
+              this.error = "Seed generation failed. :(";
+              this.retry = true;
+            } else {
+              this.error = "Seed not found. :(";
+            }
           }
         });
     },
@@ -251,6 +271,11 @@ export default defineComponent({
     </div>
     <div v-else-if="error" class="error-message">
       {{ error }}
+      <div v-if="retry">
+        <button type="submit" class="btn btn-primary submit-btn" @click="retryGeneration">
+          Retry
+        </button>
+      </div>
     </div>
     <div v-else>
       <img class="center" src="/bludormspinbig.gif" />
