@@ -13,6 +13,7 @@ base:
   trap_door_mode: all
   boss_shuffle: all
   enemy_shuffle: all
+  damage_table_shuffle: all
   small_keys: all
   big_keys: all
   maps: all
@@ -27,6 +28,7 @@ base:
   bombs: all
   book: all
   follower_shuffle: all
+  damage_challenge: all
   hints: all
 apr2025:
   mode: ['open', 'standard']

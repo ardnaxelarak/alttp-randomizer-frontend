@@ -47,6 +47,9 @@ enemy_shuffle:
   vanilla: Vanilla Enemies
   shuffled: Shuffled Enemies
   mimics: All Mimics
+damage_table_shuffle:
+  vanilla: Vanilla
+  randomized: Randomized
 boss_shuffle:
   vanilla: Vanilla Bosses
   simple: Simple Boss Shuffle

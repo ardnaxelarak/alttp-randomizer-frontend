@@ -176,6 +176,7 @@ export default defineComponent({
       </template>
       <SettingPicker color="success" v-model="set.boss_shuffle" name="boss_shuffle" generator="base" :prefix="prefix" />
       <SettingPicker color="success" v-model="set.enemy_shuffle" name="enemy_shuffle" generator="base" :prefix="prefix" />
+      <SettingPicker color="success" v-model="set.damage_table_shuffle" name="damage_table_shuffle" generator="base" :prefix="prefix" />
     </AccordionItem>
     <AccordionItem :expanded="false">
       <template #header>
@@ -205,6 +206,12 @@ export default defineComponent({
       <SettingPicker color="primary" v-model="set.dark_rooms" name="dark_rooms" generator="base" :prefix="prefix" />
       <SettingPicker color="primary" v-model="set.bombs" name="bombs" generator="base" :prefix="prefix" />
       <SettingPicker color="primary" v-model="set.book" name="book" generator="base" :prefix="prefix" />
+    </AccordionItem>
+    <AccordionItem :expanded="false">
+      <template #header>
+        <b>Challenge Modes:</b>
+      </template>
+      <SettingPicker color="danger" v-model="set.damage_challenge" name="damage_challenge" generator="base" :prefix="prefix" />
     </AccordionItem>
   </div>
 </template>

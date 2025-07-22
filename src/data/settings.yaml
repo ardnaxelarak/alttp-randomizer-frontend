@@ -155,6 +155,14 @@ enemy_shuffle:
       display: Shuffled
     mimics:
       display: All Mimics
+damage_table_shuffle:
+  display: Damage Table Shuffle
+  default: vanilla
+  values:
+    vanilla:
+      display: None
+    randomized:
+      display: Randomized
 small_keys:
   display: Small Key Shuffle
   default: dungeon
@@ -351,6 +359,16 @@ follower_shuffle:
       display: None
     shuffled:
       display: Shuffled
+damage_challenge:
+  display: Damage Mode
+  default: normal
+  values:
+    normal:
+      display: Normal
+    ohko:
+      display: One-Hit KO
+    gloom:
+      display: Gloom
 hints:
   display: Hints
   default: off
