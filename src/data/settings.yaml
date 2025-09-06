@@ -95,6 +95,40 @@ crystals_gt:
       display: 0
     random:
       display: Random
+ganon_item:
+  display: Ganon Vulnerability Item
+  default: "silver"
+  values:
+    silver:
+      display: Silver Arrows
+    boomerang:
+      display: Boomerang
+    hookshot:
+      display: Hookshot
+    powder:
+      display: Powder
+    fire_rod:
+      display: Fire Rod
+    ice_rod:
+      display: Ice Rod
+    bombos:
+      display: Bombos
+    ether:
+      display: Ether
+    quake:
+      display: Quake
+    hammer:
+      display: Hammer
+    bee:
+      display: Bee
+    somaria:
+      display: Cane of Somaria
+    byrna:
+      display: Cane of Byrna
+    random:
+      display: Random
+    none:
+      display: No Weakness
 entrance_shuffle:
   display: Entrance Shuffle
   default: vanilla

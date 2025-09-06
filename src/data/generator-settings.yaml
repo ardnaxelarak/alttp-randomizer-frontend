@@ -4,6 +4,7 @@ base:
   goal: all
   crystals_ganon: all
   crystals_gt: all
+  ganon_item: all
   entrance_shuffle: all
   skull_woods: all
   linked_drops: all

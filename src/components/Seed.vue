@@ -9,6 +9,7 @@ import ReduceFlashingPicker from "@/components/ReduceFlashingPicker.vue";
 import BackgroundMusicPicker from "@/components/BackgroundMusicPicker.vue";
 import MsuResumePicker from "@/components/MsuResumePicker.vue";
 import CollectionRatePicker from "@/components/CollectionRatePicker.vue";
+import UltraFastJunkPicker from "@/components/UltraFastJunkPicker.vue";
 import Spoiler from "@/components/Spoiler.vue";
 
 import SeedSettings from "@/components/SeedSettings.vue";
@@ -30,6 +31,7 @@ export default defineComponent({
     BackgroundMusicPicker,
     MsuResumePicker,
     CollectionRatePicker,
+    UltraFastJunkPicker,
     Spoiler,
   },
   data() {
@@ -37,6 +39,7 @@ export default defineComponent({
       rom_checksum: "3322EFFC",
       baserom: null,
       baserom_error: null,
+      created: null,
       patch: null,
       error: null,
       retry: false,
@@ -93,6 +96,7 @@ export default defineComponent({
       this.settings = seedData.settings;
       this.multi = seedData.parent;
       this.spoiler = seedData.spoiler;
+      this.created = seedData.created;
     },
     async fetchSeed() {
       await axios.get(`/seed/${this.id}`)
@@ -165,13 +169,11 @@ export default defineComponent({
       this.$refs.bgm.patch(rom);
       this.$refs.reduce_flashing.patch(rom);
       this.$refs.quickswap.patch(rom);
+      this.$refs.ufj.patch(rom);
 
       if (this.allow_cr) {
         this.$refs.cr.patch(rom);
       }
-
-      // fast multijunk, too lazy to make it a setting rn
-      rom[0x1800AF] = 0x10;
 
       // Fix Checksum
       const sum = rom.reduce(function(sum, mbyte, i) {
@@ -250,6 +252,7 @@ export default defineComponent({
             <ReduceFlashingPicker ref="reduce_flashing" />
             <QuickswapPicker ref="quickswap" />
             <CollectionRatePicker v-if="allow_cr" ref="cr" />
+            <UltraFastJunkPicker :created="created" ref="ufj" />
           </div>
         </li>
         <li class="list-group-item">
