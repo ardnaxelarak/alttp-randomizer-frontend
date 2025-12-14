@@ -1,4 +1,5 @@
 <script>
+import { Tooltip } from 'bootstrap'
 import { defineComponent } from 'vue';
 
 import localforage from "localforage";
@@ -45,6 +46,7 @@ export default defineComponent({
     },
   },
   async mounted() {
+    this.$refs.tips.forEach(el => new Tooltip(el));
     this.selected = await localforage.getItem(`${this.prefix}setting_${this.name}`) ?? this.settings.default;
     this.change();
   },
@@ -67,7 +69,7 @@ export default defineComponent({
       <template v-if="settings.values[value]">
         <input type="radio" class="btn-check" :name="`${prefix}${name}`" :id="`${prefix}${name}_${value}`"
             autocomplete="off" :value="value" v-model="selected" @change="change" />
-        <label :class="`btn btn-outline-${color} nav-item m-1`" :for="`${prefix}${name}_${value}`">
+        <label :class="`btn btn-outline-${color} nav-item m-1`" :for="`${prefix}${name}_${value}`" data-bs-toggle="tooltip" data-bs-placement="bottom" :title="settings.values[value].tip" ref="tips">
           {{ settings.values[value].display }}
         </label>
       </template>

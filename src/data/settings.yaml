@@ -23,32 +23,44 @@ weapons:
       display: Random
     assured:
       display: Assured
+      tip: The player begins with the Fighter Sword.
     vanilla:
       display: Vanilla
+      tip: "Swords are placed in their vanilla locations: Uncle, Pedestal, Blacksmith, and Pyramid Fairy"
     swordless:
       display: Swordless
+      tip: The player will never find a sword. Ganon can instead be damaged with the hammer.
     assured_master:
       display: Assured Master
+      tip: The player begins with the Master Sword.
 goal:
   display: Goal
   default: ganon
   values:
     ganon:
       display: Ganon
+      tip: Ganon must be defeated to complete the game, but can only be defeated once the player has collected a sufficient number of crystals and defeated the form of Agahnim at the top of Ganon's Tower.
     fast_ganon:
       display: Fast Ganon
+      tip: Ganon must be defeated to complete the game, but can only be defeated once the player has collected a sufficient number of crystals.
     all_dungeons:
       display: All Dungeons
+      tip: Ganon must be defeated to complete the game, but can only be defeated once the player has collected all seven crystals, all three pendants, and has defeated both forms of Agahnim.
     pedestal:
       display: Pedestal
+      tip: Collecting all three pendants and pulling the item from the Master Sword Pedestal will complete the game.
     triforce_hunt:
       display: Triforce Hunt
+      tip: The player must collect enough triforce pieces and then turn them in to Murahdala outside Hyrule Castle to complete the game.
     ganon_hunt:
       display: Ganon Hunt
+      tip: Ganon must be defeated to complete the game, but can only be defeated once the player has collected enough triforce pieces.
     completionist:
       display: Completionist
+      tip: Ganon must be defeated to complete the game, but can only be defeated once every single randomized item has been collected.
     sanctuary:
       display: Sanctuary
+      tip: Opening the chest in the sanctuary will complete the game.
 crystals_ganon:
   display: Crystals for Ganon
   default: "7"
@@ -129,6 +141,7 @@ ganon_item:
       display: Random
     none:
       display: No Weakness
+      tip: Ganon cannot be injured while in his blue vulnerable state, and can only be harmed during the frames while he raises his arms.
 entrance_shuffle:
   display: Entrance Shuffle
   default: vanilla
@@ -149,22 +162,29 @@ skull_woods:
   values:
     original:
       display: Shuffled in SW
+      tip: The entrances (aside from the fire-locked skull entrance) and drops in Skull Woods are each shuffled within their own pool.
     restricted:
       display: Vanilla Drops
+      tip: The entrances (aside from the fire-locked skull entrance) in Skull Woods are shuffled within their own pool, and the drops all lead to their vanilla placements.
     loose:
       display: Vanilla Drops, Loose Entrances
+      tip: The drops into Skull Woods all lead to their vanilla location; the entrances are shuffled into the main pool of entrances.
     follow_linked:
       display: Chaos
+      tip: The front entrance to Skull Woods (with the drop that leads to the Big Chest) and the middle entrance (with the northern drop accessible from the back) form two more linked dropdowns that are shuffled into the broader pool of dropdowns. The remaining two drops both lead to their vanilla locations.
 linked_drops:
   display: Linked Drops
   default: unset
   values:
     unset:
       display: Unset
+      tip: Dropdowns are linked unless the entrance shuffle mode is set to decoupled.
     linked:
       display: Linked
+      tip: Dropdowns are linked with their nearby entrance and shuffled as pairs.
     independent:
       display: Independent
+      tip: Dropdowns are shuffled independently from their nearby entrances.
 boss_shuffle:
   display: Boss Shuffle
   default: vanilla
@@ -173,12 +193,16 @@ boss_shuffle:
       display: None
     simple:
       display: Simple
+      tip: The thirteen bosses (the ten main dungeon bosses plus the three mini-bosses in Ganon's Tower) are shuffled with their vanilla counts (two copies of each light world boss, one of each dark world boss).
     full:
       display: Full
+      tip: The thirteen bosses (the ten main dungeon bosses plus the three mini-bosses in Ganon's Tower) are shuffled to contain at least one copy of each boss, with three bosses chosen at random having a duplicate.
     random:
       display: Random
+      tip: The thirteen bosses (the ten main dungeon bosses plus the three mini-bosses in Ganon's Tower) are each chosen randomly, indepedent of how many copies there are of each boss.
     prize_unique:
       display: Prize Unique
+      tip: The ten main dungeons will have one copy of each boss; the three mini-bosses in Ganon's Tower can be any boss.
 enemy_shuffle:
   display: Enemy Shuffle
   default: vanilla
@@ -197,48 +221,78 @@ damage_table_shuffle:
       display: None
     randomized:
       display: Randomized
+      tip: Every sword entry in the damage table that would normally deal damage is randomized indepedently; this means that higher level swords will not necessarily do more damage against a given enemy.
 small_keys:
   display: Small Key Shuffle
   default: dungeon
   values:
     dungeon:
       display: In Dungeon
+      tip: Small Keys are all within their own dungeon.
     wild:
       display: Wild
+      tip: Small Keys are all shuffled anywhere within the world.
     nearby:
       display: Nearby
+      tip: Small Keys are all either within their own dungeon, or in a nearby non-dungeon location.
     universal:
       display: Universal
+      tip: Small Keys are no longer restricted to certain dungeons, and can be freely used in any dungeon. At least one shop will have keys for sale.
 big_keys:
   display: Big Key Shuffle
   default: dungeon
   values:
     dungeon:
       display: In Dungeon
+      tip: Big Keys are all within their own dungeon.
     wild:
       display: Wild
+      tip: Big Keys are all shuffled anywhere within the world.
     nearby:
       display: Nearby
+      tip: Big Keys are all either within their own dungeon, or in a nearby non-dungeon location.
 maps:
   display: Map Shuffle
   default: dungeon
   values:
     dungeon:
       display: In Dungeon
+      tip: Maps are all within their own dungeon.
     wild:
       display: Wild
+      tip: Maps are all shuffled anywhere within the world.
     nearby:
       display: Nearby
+      tip: Maps are all either within their own dungeon, or in a nearby non-dungeon location.
 compasses:
   display: Compass Shuffle
   default: dungeon
   values:
     dungeon:
       display: In Dungeon
+      tip: Compasses are all within their own dungeon.
     wild:
       display: Wild
+      tip: Compasses are all shuffled anywhere within the world.
     nearby:
       display: Nearby
+      tip: Compasses are all either within their own dungeon, or in a nearby non-dungeon location.
+prize_shuffle:
+  display: Prize Shuffle
+  default: vanilla
+  values:
+    vanilla:
+      display: On Boss
+      tip: Dungeon prizes are on bosses as in the vanilla game.
+    dungeon:
+      display: In Dungeon
+      tip: Dungeon prizes are all within their own dungeon.
+    nearby:
+      display: Nearby
+      tip: Dungeon prizes are all either within their own dungeon, or in a nearby non-dungeon location.
+    wild:
+      display: Wild
+      tip: Dungeon prizes are all shuffled anywhere within the world.
 shop_shuffle:
   display: Shop Shuffle
   default: vanilla
@@ -248,49 +302,49 @@ shop_shuffle:
     shuffled:
       display: Shuffled
 drop_shuffle:
-  display: Drop Shuffle
+  display: Enemy Drop Shuffle
   default: vanilla
   values:
     vanilla:
       display: None
+      tip: Every enemy that drops a key in vanilla will continue to drop a key.
     keys:
       display: Key Drops
+      tip: Drops from enemies that normally have a key in vanilla are shuffled into the pool of items.
     underworld:
       display: All Underworld Enemies
+      tip: Drops from every underworld enemy are shuffled into the pool of items.
 pottery:
   display: Pottery Shuffle
   default: vanilla
   values:
     vanilla:
       display: None
+      tip: Every pot that contains a key in vanilla will continue to contain a key.
     keys:
       display: Keys
+      tip: Pots that contain keys in vanilla are shuffled into the pool of items.
     cave:
       display: Caves
+      tip: Underworld pots that are not inside a dungeon are shuffled into the pool of items.
     cave_keys:
       display: Caves & Keys
+      tip: Underworld pots that either contain a key in vanilla or are not inside a dungeon are shuffled into the pool of items.
     reduced:
       display: Reduced
+      tip: Underworld pots that either contain a key in vanilla or are not inside a dungeon are shuffled into the pool of items, as well as about a quarter of all remaining dungeon pots.
     clustered:
+      tip: Underworld pots that either contain a key in vanilla or are not inside a dungeon are shuffled into the pool of items, as well as about half of all remaining dungeon pots.
       display: Clustered
     non_empty:
       display: Non-Empty
+      tip: Items inside every pot that is non-empty is vanilla are shuffled into the pool of items.
     dungeon:
       display: Dungeon
+      tip: Underworld pots that are within a dungeon are shuffled into the pool of items.
     lottery:
       display: Lottery
-prize_shuffle:
-  display: Prize Shuffle
-  default: vanilla
-  values:
-    vanilla:
-      display: On Boss
-    dungeon:
-      display: In Dungeon
-    nearby:
-      display: Nearby
-    wild:
-      display: Wild
+      tip: All underworld pots are shuffled into the pool of items.
 boots:
   display: Boots
   default: normal
@@ -299,6 +353,7 @@ boots:
       display: No Starting Boots
     pseudoboots:
       display: Pseudoboots
+      tip: The player can dash, but not knock items loose or bonk over most pits.
     starting:
       display: Starting Boots
 flute:
@@ -307,24 +362,35 @@ flute:
   values:
     normal:
       display: Flute Needs Activation
+      tip: The flute needs to be activated at the weathervane in Kakariko before the player can use it to travel.
     preactivated:
       display: Preactivated
+      tip: Once the player finds the flute they can immediately use it to travel without needing to activate it in Kakariko.
+    pseudoflute:
+      display: Pseudoflute
+      tip: The player begins the game with a flute that can only take the player to locations they have already visited (except for the portal area in the desert). Obtaining the real flute will unlock all flute locations.
     starting:
       display: Starting Activated Flute
+      tip: The player begins the game with a pre-activated flute.
 dark_rooms:
   display: Dark Room Logic
   default: require_lamp
   values:
     require_lamp:
       display: Lamp Required
+      tip: Dark rooms are only considered to be in logic if the player has the lamp.
     always_light_cone:
       display: Free Light Cone
+      tip: The player always gets a light cone in dark rooms, whether or not they have the lamp.
     no_dark_rooms:
       display: All Rooms Lit
+      tip: There are no dark rooms; all rooms that would normally be dark (except for Ganon) are instead fully lit, regardless of whether the player has the lamp.
     always_in_logic:
-      display: Always in Logic
+      display: Dark Rooms in Logic
+      tip: Dark rooms are always considered to be in logic, even if the player does not have the lamp.
     starting_lamp:
       display: Starting Lamp
+      tip: The player starts with the lamp.
 bombs:
   display: Bombs
   default: normal
@@ -333,6 +399,7 @@ bombs:
       display: No Bomb Bag Required
     bomb_bag_required:
       display: Bomb Bag Required
+      tip: The player cannot collect any bombs until they obtain a bomb bag.
 book:
   display: Book
   default: normal
@@ -341,6 +408,7 @@ book:
       display: No Special Functionality
     crystal_switches:
       display: Can Flip Crystal Switches
+      tip: Using the book indoors will flip the state of the crystal switch pegs.
 door_shuffle:
   display: Door Shuffle
   default: vanilla
@@ -401,8 +469,10 @@ damage_challenge:
       display: Normal
     ohko:
       display: One-Hit KO
+      tip: Every amount of damage the player takes is fatal.
     gloom:
       display: Gloom
+      tip: Every enemy will deal one permanent heart container of damage. The only way to regain health is to find heart containers or collect four heart pieces.
 hints:
   display: Hints
   default: off
