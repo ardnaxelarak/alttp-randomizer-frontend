@@ -49,10 +49,12 @@ export default defineComponent({
     },
     presets() {
       const filledPresets = {};
-      for (const presetName of Object.keys(presets[this.generator])) {
-        const preset = JSON.parse(JSON.stringify(presets[this.generator][presetName]));
-        this.fillPreset(preset);
-        filledPresets[presetName] = preset;
+      if (presets[this.generator]) {
+        for (const presetName of Object.keys(presets[this.generator])) {
+          const preset = JSON.parse(JSON.stringify(presets[this.generator][presetName]));
+          this.fillPreset(preset);
+          filledPresets[presetName] = preset;
+        }
       }
       return filledPresets;
     },

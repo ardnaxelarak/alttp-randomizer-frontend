@@ -461,6 +461,28 @@ follower_shuffle:
       display: None
     shuffled:
       display: Shuffled
+flute_shuffle:
+  display: Flute Spot Shuffle
+  default: vanilla
+  values:
+    vanilla:
+      display: Vanilla
+      tip: The eight flute spots are at their vanilla locations.
+    random:
+      display: Random
+      tip: The seven flute spots outside the Desert/Mire area are each moved to a random screen, with one spot available on the mountain.
+    balanced:
+      display: Balanced
+      tip: The seven flute spots outside the Desert/Mire area are each moved to a random screen such that no two flute spots are on adjacent screens.
+tile_swap:
+  display: Tile Swap
+  default: vanilla
+  values:
+    vanilla:
+      display: Normal
+    tile_swap:
+      display: Tile Swap
+      tip: Each tile on the overworld has a chance to be swapped with its inverted version.
 damage_challenge:
   display: Damage Mode
   default: normal

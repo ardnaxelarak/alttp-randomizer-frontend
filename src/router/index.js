@@ -4,6 +4,7 @@ import MultiView from "@/views/MultiView.vue";
 import GenerateView from "@/views/GenerateView.vue";
 import GenerateMulti from "@/views/GenerateMulti.vue";
 import GenerateApr2025View from "@/views/GenerateApr2025View.vue";
+import GenerateDungeonMapView from "@/views/GenerateDungeonMapView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,6 +24,10 @@ const router = createRouter({
     {
       path: '/generate/apr2025',
       component: GenerateApr2025View,
+    },
+    {
+      path: '/generate/beta_test',
+      component: GenerateDungeonMapView,
     },
     {
       path: '/seed/:id',

@@ -21,7 +21,7 @@ export default defineComponent({
   methods: {
     async generate(race) {
       const settings = {
-        randomizer: "base",
+        randomizer: "dungeon_map",
         race: race ? "race" : "normal"
       };
       for (const setting of Object.keys(this.set)) {
@@ -46,7 +46,7 @@ export default defineComponent({
       Generate Seed
     </div>
     <div id="settings" class="accordion accordion-flush">
-      <SettingsPage v-model="set" generator="base" prefix="" />
+      <SettingsPage v-model="set" generator="dungeon_map" prefix="dungeon-maps-" />
     </div>
     <div class="card-footer">
       <div class="nav nav-pills nav-fill" role="group">
@@ -62,3 +62,4 @@ export default defineComponent({
     </div>
   </div>
 </template>
+

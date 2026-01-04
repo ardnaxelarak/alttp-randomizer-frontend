@@ -30,3 +30,6 @@ base:
     drop_shuffle: keys
     pottery: keys
     dark_rooms: always_light_cone
+dungeon_map:
+  default:
+    display: Default
