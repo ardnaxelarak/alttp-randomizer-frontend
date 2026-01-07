@@ -4,7 +4,6 @@ import MultiView from "@/views/MultiView.vue";
 import GenerateView from "@/views/GenerateView.vue";
 import GenerateMulti from "@/views/GenerateMulti.vue";
 import GenerateApr2025View from "@/views/GenerateApr2025View.vue";
-import GenerateDungeonMapView from "@/views/GenerateDungeonMapView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,12 +13,14 @@ const router = createRouter({
       name: 'generate',
       component: GenerateView,
       alias: '/',
+      props: { generator: "base", prefix: "" },
     },
     {
       path: '/multiworld',
       name: 'multiworld',
       component: GenerateMulti,
       alias: '/multi',
+      props: { generator: "base", prefix: "" },
     },
     {
       path: '/generate/apr2025',
@@ -27,7 +28,14 @@ const router = createRouter({
     },
     {
       path: '/generate/beta_test',
-      component: GenerateDungeonMapView,
+      component: GenerateView,
+      alias: '/generate/beta',
+      props: { generator: "dungeon_map", prefix: "dungeon-maps-" },
+    },
+    {
+      path: '/multibeta',
+      component: GenerateMulti,
+      props: { generator: "dungeon_map", prefix: "dungeon_map_" },
     },
     {
       path: '/seed/:id',

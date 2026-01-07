@@ -11,6 +11,10 @@ export default defineComponent({
   components: {
     SettingsPage,
   },
+  props: {
+    prefix: null,
+    generator: null,
+  },
   data() {
     return {
       worlds: [{}, {}],
@@ -23,12 +27,12 @@ export default defineComponent({
     await new Promise(r => setTimeout(r, 100));
 
     for (var i = 0; i < this.worldCount; i++) {
-      this.worlds[i].player_name = await localforage.getItem(`world_${i + 1}_setting_player_name`);
+      this.worlds[i].player_name = await localforage.getItem(`${this.prefix}world_${i + 1}_setting_player_name`);
     }
   },
   methods: {
     async addWorld() {
-      const newname = await localforage.getItem(`world_${this.worldCount + 1}_setting_player_name`);
+      const newname = await localforage.getItem(`${this.prefix}world_${this.worldCount + 1}_setting_player_name`);
       this.worlds.push({player_name: newname});
       this.worldCount++;
 
@@ -40,13 +44,13 @@ export default defineComponent({
       this.worlds.pop();
     },
     async playerNameUpdated(num) {
-      await localforage.setItem(`world_${num + 1}_setting_player_name`, this.worlds[num].player_name);
+      await localforage.setItem(`${this.prefix}world_${num + 1}_setting_player_name`, this.worlds[num].player_name);
     },
     async generate(race) {
       const settings = [];
       for (var i = 0; i < this.worldCount; i++) {
         const world = {
-          randomizer: "base",
+          randomizer: this.generator,
           race: race ? "race" : "normal"
         };
         for (const setting of Object.keys(this.worlds[i])) {
@@ -109,7 +113,7 @@ export default defineComponent({
                 @change="playerNameUpdated(idx)" />
           </div>
           <div id="settings" class="accordion accordion-flush">
-            <SettingsPage v-model="worlds[idx]" :prefix="`world_${n}_`" />
+            <SettingsPage v-model="worlds[idx]" :prefix="`${prefix}world_${n}_`" :generator="generator" />
           </div>
         </div>
       </template>

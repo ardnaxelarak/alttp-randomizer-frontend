@@ -10,6 +10,10 @@ export default defineComponent({
   components: {
     SettingsPage,
   },
+  props: {
+    prefix: null,
+    generator: null,
+  },
   data() {
     return {
       set: {},
@@ -21,7 +25,7 @@ export default defineComponent({
   methods: {
     async generate(race) {
       const settings = {
-        randomizer: "base",
+        randomizer: this.generator,
         race: race ? "race" : "normal"
       };
       for (const setting of Object.keys(this.set)) {
@@ -46,7 +50,7 @@ export default defineComponent({
       Generate Seed
     </div>
     <div id="settings" class="accordion accordion-flush">
-      <SettingsPage v-model="set" generator="base" prefix="" />
+      <SettingsPage v-model="set" :generator="generator" :prefix="prefix" />
     </div>
     <div class="card-footer">
       <div class="nav nav-pills nav-fill" role="group">
