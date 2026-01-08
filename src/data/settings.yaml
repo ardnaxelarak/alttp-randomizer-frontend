@@ -505,6 +505,18 @@ damage_challenge:
     gloom:
       display: Gloom
       tip: Every enemy will deal one permanent heart container of damage. The only way to regain health is to find heart containers or collect four heart pieces.
+show_loot:
+  display: Show Value of Checks
+  default: compass
+  values:
+    never:
+      display: Never
+    compass:
+      display: With Compass
+      tip: With the compass for a dungeon, icons will show on the dungeon map with the best item value on each supertile. Without the compass, compasses will show on the dungeon map.
+    always:
+      display: Always
+      tip: Icons will show on the dungeon map with the best item value on each supertile.
 hints:
   display: Hints
   default: off

@@ -70,6 +70,7 @@ dungeon_map:
   big_keys: all
   maps: all
   compasses: all
+  show_loot: all
   shop_shuffle: all
   drop_shuffle: all
   pottery: all
