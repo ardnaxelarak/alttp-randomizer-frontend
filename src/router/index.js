@@ -35,7 +35,7 @@ const router = createRouter({
     {
       path: '/multibeta',
       component: GenerateMulti,
-      props: { generator: "dungeon_map", prefix: "dungeon_map_" },
+      props: { generator: "dungeon_map", prefix: "dungeon-maps-" },
     },
     {
       path: '/seed/:id',
