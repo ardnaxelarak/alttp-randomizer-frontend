@@ -25,6 +25,7 @@ base:
   prize_shuffle: all
   boots: all
   flute: all
+  mirror: all
   dark_rooms: all
   bombs: all
   book: all
@@ -75,6 +76,7 @@ dungeon_map:
   prize_shuffle: all
   boots: all
   flute: all
+  mirror: all
   dark_rooms: all
   bombs: all
   book: all

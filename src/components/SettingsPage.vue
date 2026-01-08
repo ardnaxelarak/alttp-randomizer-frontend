@@ -220,6 +220,7 @@ export default defineComponent({
       </template>
       <SettingPicker color="primary" v-model="set.boots" name="boots" :generator="generator" :prefix="prefix" />
       <SettingPicker color="primary" v-model="set.flute" name="flute" :generator="generator" :prefix="prefix" />
+      <SettingPicker color="primary" v-model="set.mirror" name="mirror" :generator="generator" :prefix="prefix" />
       <SettingPicker color="primary" v-model="set.dark_rooms" name="dark_rooms" :generator="generator" :prefix="prefix" />
       <SettingPicker color="primary" v-model="set.bombs" name="bombs" :generator="generator" :prefix="prefix" />
       <SettingPicker color="primary" v-model="set.book" name="book" :generator="generator" :prefix="prefix" />

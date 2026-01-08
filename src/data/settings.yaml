@@ -372,6 +372,16 @@ flute:
     starting:
       display: Starting Activated Flute
       tip: The player begins the game with a pre-activated flute.
+mirror:
+  display: Mirror
+  default: normal
+  values:
+    normal:
+      display: No Starting Mirror
+    scroll:
+      display: Mirror Scroll
+    starting:
+      display: Starting Mirror
 dark_rooms:
   display: Dark Room Logic
   default: require_lamp
