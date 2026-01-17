@@ -28,7 +28,6 @@ export default defineComponent({
   ],
   props: {
     generator: null,
-    prefix: null,
   },
   computed: {
     ...mapState(usePresetStore, {

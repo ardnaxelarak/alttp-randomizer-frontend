@@ -39,7 +39,7 @@ export default defineComponent({
   computed: {
     settings() {
       return generatorSettings[this.generator];
-    }
+    },
   },
   async mounted() {
     this.modal = new Modal(this.$refs.savePresetModal, {});
@@ -75,10 +75,8 @@ export default defineComponent({
         });
     },
     presetSelected(preset) {
-      for (const setting of Object.keys(this.set)) {
-        if (preset[setting] != undefined) {
-          this.set[setting] = preset[setting];
-        }
+      for (const setting of Object.keys(preset)) {
+        this.set[setting] = preset[setting];
       }
     },
     savePreset(names) {
@@ -143,7 +141,7 @@ export default defineComponent({
   <div id="settings" class="accordion accordion-flush">
     <AccordionItem>
       <PresetPicker ref="preset" :generator="generator" @selected="presetSelected"
-          @save="savePreset" :prefix="prefix" />
+          @save="savePreset" />
     </AccordionItem>
     <AccordionItem :expanded="true">
       <template #header>
@@ -180,7 +178,7 @@ export default defineComponent({
       </template>
       <SettingPicker color="danger" v-model="set.door_shuffle" name="door_shuffle" :generator="generator" :prefix="prefix" />
       <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"
-          v-model="set.lobbies" name="door_lobbies" :generator="generator" :prefix="prefix" />
+          v-model="set.door_lobbies" name="door_lobbies" :generator="generator" :prefix="prefix" />
       <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"
           v-model="set.door_type_mode" name="door_type_mode" :generator="generator" :prefix="prefix" />
       <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"

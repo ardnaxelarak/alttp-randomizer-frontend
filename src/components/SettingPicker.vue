@@ -48,7 +48,12 @@ export default defineComponent({
   async mounted() {
     this.$refs.tips?.forEach(el => new Tooltip(el));
     if (this.settings) {
-      this.selected = await localforage.getItem(`${this.prefix}setting_${this.name}`) ?? this.settings.default;
+      const saved = await localforage.getItem(`${this.prefix}setting_${this.name}`) ?? this.settings.default;
+      if (this.modelValue) {
+        this.selected = this.modelValue;
+      } else {
+        this.selected = saved;
+      }
       this.change();
     }
   },
