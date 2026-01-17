@@ -150,6 +150,8 @@ export default defineComponent({
       <SettingPicker color="primary" v-model="set.mode" name="mode" :generator="generator" :prefix="prefix" />
       <SettingPicker color="primary" v-model="set.weapons" name="weapons" :generator="generator" :prefix="prefix" />
       <SettingPicker color="primary" v-model="set.hints" name="hints" :generator="generator" :prefix="prefix" />
+      <SettingPicker color="primary" v-model="set.show_map" name="show_map" :generator="generator" :prefix="prefix" />
+      <SettingPicker color="primary" v-model="set.show_loot" name="show_loot" :generator="generator" :prefix="prefix" />
     </AccordionItem>
     <AccordionItem :expanded="true">
       <template #header>
@@ -228,7 +230,6 @@ export default defineComponent({
       <SettingPicker color="primary" v-model="set.dark_rooms" name="dark_rooms" :generator="generator" :prefix="prefix" />
       <SettingPicker color="primary" v-model="set.bombs" name="bombs" :generator="generator" :prefix="prefix" />
       <SettingPicker color="primary" v-model="set.book" name="book" :generator="generator" :prefix="prefix" />
-      <SettingPicker color="primary" v-model="set.show_loot" name="show_loot" :generator="generator" :prefix="prefix" />
     </AccordionItem>
     <AccordionItem :expanded="false">
       <template #header>

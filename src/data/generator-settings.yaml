@@ -71,6 +71,7 @@ dungeon_map:
   maps: all
   compasses: all
   show_loot: all
+  show_map: all
   shop_shuffle: all
   drop_shuffle: all
   pottery: all

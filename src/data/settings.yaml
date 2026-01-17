@@ -506,17 +506,34 @@ damage_challenge:
       display: Gloom
       tip: Every enemy will deal one permanent heart container of damage. The only way to regain health is to find heart containers or collect four heart pieces.
 show_loot:
-  display: Show Value of Checks
+  display: Show Dungeon Checks
   default: compass
   values:
     never:
       display: Never
+      tip: No icons will show on the dungeon map.
+    presence:
+      display: Uncollected
+      tip: A dot icons will show on the dungeon map on each supertile with an uncollected item.
     compass:
-      display: With Compass
-      tip: With the compass for a dungeon, icons will show on the dungeon map with the best item value on each supertile. Without the compass, compasses will show on the dungeon map.
+      display: Value With Compass
+      tip: With the compass for a dungeon, icons will show on the dungeon map with the best item value on each supertile. Without the compass, compass icons will show the location of compasses, and dots will show for any other uncollected item.
+    always:
+      display: Value Always
+      tip: Icons will show on the dungeon map with the best uncollected item value on each supertile.
+show_map:
+  display: Show Dungeon Maps
+  default: map
+  values:
+    visited:
+      display: Visited Tiles Only
+      tip: Visited tiles in the dungeon map will show the outline of the room. Unvisited tiles will show an undetailed square.
+    map:
+      display: Visited + Map
+      tip: With the map for a dungeon, all tiles in the dungeon map will show the outline of the room. Without the map, visited tiles will show the outline of the room, and unvisited tiles will show an undetailed square.
     always:
       display: Always
-      tip: Icons will show on the dungeon map with the best item value on each supertile.
+      tip: All tiles in the dungeon map will show the outline of the room.
 hints:
   display: Hints
   default: off
