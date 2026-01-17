@@ -1,5 +1,6 @@
 <script>
 import { defineComponent } from "vue";
+import { mapActions } from "pinia";
 
 import axios from "axios";
 import { Modal } from "bootstrap";
@@ -9,6 +10,8 @@ import generatorSettings from "@/data/generator-settings.yaml";
 import AccordionItem from "@/components/AccordionItem.vue";
 import PresetPicker from "@/components/PresetPicker.vue";
 import SettingPicker from "@/components/SettingPicker.vue";
+
+import usePresetStore from "@/stores/preset.js";
 
 export default defineComponent({
   components: {
@@ -38,8 +41,10 @@ export default defineComponent({
       return generatorSettings[this.generator];
     }
   },
-  mounted() {
-    this.modal = new Modal(document.getElementById("savePresetModal"), {});
+  async mounted() {
+    this.modal = new Modal(this.$refs.savePresetModal, {});
+    await this.fetchLocalPresets();
+    this.$refs.preset.settingChanged(this.set);
   },
   watch: {
     set: {
@@ -51,6 +56,7 @@ export default defineComponent({
     }
   },
   methods: {
+    ...mapActions(usePresetStore, ["fetchLocalPresets"]),
     async generate(race) {
       const settings = {
         randomizer: this.generator,
@@ -94,7 +100,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="modal" tabindex="-1" id="savePresetModal">
+  <div class="modal" tabindex="-1" ref="savePresetModal">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -137,7 +143,7 @@ export default defineComponent({
   <div id="settings" class="accordion accordion-flush">
     <AccordionItem>
       <PresetPicker ref="preset" :generator="generator" @selected="presetSelected"
-          @save="savePreset" />
+          @save="savePreset" :prefix="prefix" />
     </AccordionItem>
     <AccordionItem :expanded="true">
       <template #header>

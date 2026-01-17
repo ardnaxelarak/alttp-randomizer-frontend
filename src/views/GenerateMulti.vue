@@ -3,7 +3,7 @@ import { defineComponent } from "vue";
 
 import axios from "axios";
 import localforage from "localforage";
-import { Modal } from "bootstrap";
+import { Tab } from "bootstrap";
 
 import SettingsPage from "@/components/SettingsPage.vue";
 
@@ -28,6 +28,7 @@ export default defineComponent({
 
     for (var i = 0; i < this.worldCount; i++) {
       this.worlds[i].player_name = await localforage.getItem(`${this.prefix}world_${i + 1}_setting_player_name`);
+      new Tab(this.$refs.tabs[i]);
     }
   },
   methods: {
@@ -36,12 +37,17 @@ export default defineComponent({
       this.worlds.push({player_name: newname});
       this.worldCount++;
 
+      await this.$nextTick();
+      Tab.getOrCreateInstance(this.$refs.tabs[this.worldCount - 1]).show();
+
       await new Promise(r => setTimeout(r, 100));
       this.worlds[this.worldCount - 1].player_name = newname;
     },
     async removeWorld() {
       this.worldCount--;
       this.worlds.pop();
+      await this.$nextTick();
+      Tab.getOrCreateInstance(this.$refs.tabs[this.worldCount - 1]).show();
     },
     async playerNameUpdated(num) {
       await localforage.setItem(`${this.prefix}world_${num + 1}_setting_player_name`, this.worlds[num].player_name);
@@ -83,17 +89,18 @@ export default defineComponent({
     <ul class="nav nav-tabs ps-3 pt-3 pe-3">
       <li v-for="(n, idx) in worldCount" class="nav-item" role="presentation">
         <button class="nav-link" :class="{active: idx == 0}" data-bs-toggle="tab"
-            :data-bs-target="`#world_page_${n}`" type="button" role="tab">
+            :data-bs-target="`#world_page_${n}`" type="button" role="tab" ref="tabs">
           <template v-if="worlds[idx] && worlds[idx].player_name && worlds[idx].player_name.length">
             {{ worlds[idx].player_name }}
           </template>
           <template v-else>
             {{ n }}
           </template>
-          <button v-if="n == worldCount && n > 2" @click="removeWorld"
-              class="badge btn rounded-pill text-bg-danger">
-            <i class="bi bi-trash"></i>
-          </button>
+          <div v-if="n == worldCount && n > 2" class="delete-player-button">
+            <button @click="removeWorld" class="badge btn rounded-pill text-bg-danger">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
         </button>
       </li>
       <button class="nav-link" type="button" role="tab" @click="addWorld">
@@ -132,3 +139,10 @@ export default defineComponent({
     </div>
   </div>
 </template>
+
+<style>
+.delete-player-button {
+  display: inline;
+  margin-left: 1em;
+}
+</style>

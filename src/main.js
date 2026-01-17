@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 
@@ -14,8 +15,10 @@ import "./assets/main.css";
 import axios from "axios";
 axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 
-const app = createApp(App)
+const pinia = createPinia();
+const app = createApp(App);
 
-app.use(router)
+app.use(router);
+app.use(pinia);
 
-app.mount('#app')
+app.mount('#app');
