@@ -76,7 +76,7 @@ export default defineComponent({
     async deleteClicked() {
       const idx = this.selected.substring(6);
       this.selected = "custom";
-      await this.deleteLocalPreset(this.generator, idk);
+      await this.deleteLocalPreset(this.generator, idx);
     },
     async savePreset(idx, preset) {
       idx = await this.saveLocalPreset(this.generator, idx, preset);
