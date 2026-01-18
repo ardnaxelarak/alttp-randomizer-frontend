@@ -46,6 +46,8 @@ goal:
     all_dungeons:
       display: All Dungeons
       tip: Ganon must be defeated to complete the game, but can only be defeated once the player has collected all seven crystals, all three pendants, and has defeated both forms of Agahnim.
+    trinity:
+      display: Trinity
     pedestal:
       display: Pedestal
       tip: Collecting all three pendants and pulling the item from the Master Sword Pedestal will complete the game.

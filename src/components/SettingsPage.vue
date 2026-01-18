@@ -161,9 +161,9 @@ export default defineComponent({
         <b>Goal:</b>
       </template>
       <SettingPicker color="success" v-model="set.goal" name="goal" :generator="generator" :prefix="prefix" />
-      <SettingPicker color="success" v-if="['ganon', 'fast_ganon'].includes(this.set.goal)" 
+      <SettingPicker color="success" v-if="['ganon', 'fast_ganon', 'trinity'].includes(this.set.goal)" 
           v-model="set.crystals_ganon" name="crystals_ganon" :generator="generator" :prefix="prefix" />
-      <SettingPicker color="success" v-if="['ganon', 'fast_ganon'].includes(this.set.goal)" 
+      <SettingPicker color="success" v-if="['ganon', 'fast_ganon', 'trinity', 'ganon_hunt'].includes(this.set.goal)" 
           v-model="set.ganon_item" name="ganon_item" :generator="generator" :prefix="prefix" />
       <SettingPicker color="success" v-model="set.crystals_gt" name="crystals_gt" :generator="generator" :prefix="prefix" />
     </AccordionItem>
