@@ -6,6 +6,7 @@ base:
   crystals_gt: all
   ganon_item: all
   entrance_shuffle: all
+  links_house: all
   skull_woods: all
   linked_drops: all
   door_shuffle: all
@@ -57,6 +58,7 @@ dungeon_map:
   crystals_gt: all
   ganon_item: all
   entrance_shuffle: all
+  links_house: all
   skull_woods: all
   linked_drops: all
   door_shuffle: all

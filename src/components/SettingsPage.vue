@@ -76,6 +76,9 @@ export default defineComponent({
     },
     presetSelected(preset) {
       for (const setting of Object.keys(preset)) {
+        if (setting == "player_name") {
+          continue;
+        }
         this.set[setting] = preset[setting];
       }
     },
@@ -169,6 +172,8 @@ export default defineComponent({
         <b>Entrance Shuffle:</b>
       </template>
       <SettingPicker color="warning" v-model="set.entrance_shuffle" name="entrance_shuffle" :generator="generator" :prefix="prefix" />
+      <SettingPicker color="warning" v-if="this.set.entrance_shuffle != 'vanilla'"
+          v-model="set.links_house" name="links_house" :generator="generator" :prefix="prefix" />
       <SettingPicker color="warning" v-if="this.set.entrance_shuffle != 'vanilla'"
           v-model="set.skull_woods" name="skull_woods" :generator="generator" :prefix="prefix" />
       <SettingPicker color="warning" v-if="this.set.entrance_shuffle != 'vanilla'"

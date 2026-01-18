@@ -156,6 +156,14 @@ entrance_shuffle:
       display: Swapped
     decoupled:
       display: Decoupled
+links_house:
+  display: Link's House
+  default: vanilla
+  values:
+    vanilla:
+      display: Vanilla
+    shuffled:
+      display: Shuffled
 skull_woods:
   display: Skull Woods Entrances
   default: original
