@@ -10,6 +10,7 @@ export default defineComponent({
       multidata: null,
       worlds: {},
       error: null,
+      retry: false,
     };
   },
   props: {
@@ -25,6 +26,20 @@ export default defineComponent({
     },
   },
   methods: {
+    async retryGeneration() {
+      await axios.post(`/multi/${this.id}`, {}, {
+        headers: {
+          "Content-Type": "text/plain",
+        }
+      })
+        .then(response => {
+          this.$router.go();
+        })
+        .catch(error => {
+          console.log(error);
+          this.$router.go();
+        });
+    },
     async fetchMulti() {
       await axios.get(`/multi/${this.id}`)
         .then(response => {
@@ -40,6 +55,9 @@ export default defineComponent({
           if (error.response?.status == 409) {
             // still generating, try again
             setTimeout(this.fetchMulti.bind(this), 10000);
+          } else if (error.response?.data?.retry) {
+            this.error = "Multiworld generation failed. :(";
+            this.retry = true;
           } else {
             this.error = "Multiworld not found. :(";
           }
@@ -76,6 +94,11 @@ export default defineComponent({
     </div>
     <div v-else-if="error" class="error-message">
       {{ error }}
+      <div v-if="retry">
+        <button type="submit" class="btn btn-primary submit-btn" @click="retryGeneration">
+          Retry
+        </button>
+      </div>
     </div>
     <div v-else>
       <img class="center" src="/bludormspinbig.gif" />

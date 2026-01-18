@@ -80,7 +80,7 @@ export default defineComponent({
     async retryGeneration() {
       await axios.post(`/seed/${this.id}`, {}, {
         headers: {
-          "Content-Type": "text/pain",
+          "Content-Type": "text/plain",
         }
       })
         .then(response => {
@@ -124,13 +124,11 @@ export default defineComponent({
           if (error.response?.status == 409) {
             // still generating, try again
             setTimeout(this.fetchSeed.bind(this), 2000);
+          } else if (error.response?.data?.retry) {
+            this.error = "Seed generation failed. :(";
+            this.retry = true;
           } else {
-            if (error.response?.data?.retry) {
-              this.error = "Seed generation failed. :(";
-              this.retry = true;
-            } else {
-              this.error = "Seed not found. :(";
-            }
+            this.error = "Seed not found. :(";
           }
         });
     },
