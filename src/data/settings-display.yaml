@@ -40,7 +40,7 @@ door_shuffle:
   paired: Paired Door Shuffle
   partitioned: Partitioned Door Shuffle
   crossed: Crossed Door Shuffle
-door_lobbies:
+lobbies:
   Vanilla: Vanilla Dungeon Lobbies
   Shuffled: Shuffled Dungeon Lobbies
 enemy_shuffle:

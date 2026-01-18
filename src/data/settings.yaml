@@ -431,7 +431,7 @@ door_shuffle:
       display: Partitioned
     crossed:
       display: Crossed
-door_lobbies:
+lobbies:
   display: Dungeon Lobbies
   default: vanilla
   values:
@@ -514,7 +514,7 @@ show_loot:
       tip: No icons will show on the dungeon map.
     presence:
       display: Uncollected
-      tip: A dot icons will show on the dungeon map on each supertile with an uncollected item.
+      tip: A dot icon will show on the dungeon map on each supertile with an uncollected item.
     compass:
       display: Value With Compass
       tip: With the compass for a dungeon, icons will show on the dungeon map with the best item value on each supertile. Without the compass, compass icons will show the location of compasses, and dots will show for any other uncollected item.

@@ -180,7 +180,7 @@ export default defineComponent({
       </template>
       <SettingPicker color="danger" v-model="set.door_shuffle" name="door_shuffle" :generator="generator" :prefix="prefix" />
       <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"
-          v-model="set.door_lobbies" name="door_lobbies" :generator="generator" :prefix="prefix" />
+          v-model="set.lobbies" name="lobbies" :generator="generator" :prefix="prefix" />
       <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"
           v-model="set.door_type_mode" name="door_type_mode" :generator="generator" :prefix="prefix" />
       <SettingPicker color="danger" v-if="this.set.door_shuffle != 'vanilla'"
