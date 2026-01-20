@@ -31,6 +31,11 @@ export default defineComponent({
           || (this.settings.compasses && this.settings.compasses != "dungeon")
           || (this.settings.prize_shuffle && this.settings.prize_shuffle != "vanilla");
     },
+    extraPool() {
+      return (this.settings.shop_shuffle && this.settings.shop_shuffle != "vanilla")
+          || (this.settings.drop_shuffle && this.settings.drop_shuffle != "vanilla")
+          || (this.settings.pottery && this.settings.pottery != "vanilla");
+    },
     multilink() {
       if (this.multi) {
         return `/multi/${this.multi}`;
@@ -73,8 +78,8 @@ export default defineComponent({
     <div>
       {{ settingsDisplay.door_shuffle[settings.door_shuffle] }}
     </div>
-    <div v-if="settings.door_lobbies && settings.door_lobbies != 'vanilla'">
-      {{ settingsDisplay.door_lobbies[settings.door_lobbies] }}
+    <div v-if="settings.lobbies && settings.lobbies != 'vanilla'">
+      {{ settingsDisplay.lobbies[settings.lobbies] }}
     </div>
   </div>
   <div v-if="isEnemizer">
@@ -102,6 +107,18 @@ export default defineComponent({
     </div>
     <div v-if="settings.prize_shuffle && settings.prize_shuffle != 'vanilla'">
       {{ settingsDisplay.prize_shuffle[settings.prize_shuffle] }}
+    </div>
+  </div>
+  <div v-if="extraPool">
+    <hr class="mt-2 mb-2" />
+    <div v-if="settings.shop_shuffle && settings.shop_shuffle != 'vanilla'">
+      {{ settingsDisplay.shop_shuffle[settings.shop_shuffle] }}
+    </div>
+    <div v-if="settings.drop_shuffle && settings.drop_shuffle != 'vanilla'">
+      {{ settingsDisplay.drop_shuffle[settings.drop_shuffle] }}
+    </div>
+    <div v-if="settings.pottery && settings.pottery != 'vanilla'">
+      {{ settingsDisplay.pottery[settings.pottery] }}
     </div>
   </div>
 </template>

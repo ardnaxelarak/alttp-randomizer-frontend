@@ -344,8 +344,8 @@ pottery:
       display: Reduced
       tip: Underworld pots that either contain a key in vanilla or are not inside a dungeon are shuffled into the pool of items, as well as about a quarter of all remaining dungeon pots.
     clustered:
-      tip: Underworld pots that either contain a key in vanilla or are not inside a dungeon are shuffled into the pool of items, as well as about half of all remaining dungeon pots.
       display: Clustered
+      tip: Underworld pots that either contain a key in vanilla or are not inside a dungeon are shuffled into the pool of items, as well as about half of all remaining dungeon pots.
     non_empty:
       display: Non-Empty
       tip: Items inside every pot that is non-empty is vanilla are shuffled into the pool of items.
@@ -353,7 +353,7 @@ pottery:
       display: Dungeon
       tip: Underworld pots that are within a dungeon are shuffled into the pool of items.
     lottery:
-      display: Lottery
+      display: All
       tip: All underworld pots are shuffled into the pool of items.
 boots:
   display: Boots

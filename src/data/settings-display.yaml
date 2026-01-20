@@ -4,6 +4,7 @@ goal:
   ganon: "{{ crystals_ganon }} Crystal Ganon"
   fast_ganon: "{{ crystals_ganon }} Crystal Fast Ganon"
   all_dungeons: All Dungeons
+  trinity: Trinity
   triforce_hunt: Triforce Hunt
   ganon_hunt: Ganon Hunt
   completionist: Completionist
@@ -41,8 +42,8 @@ door_shuffle:
   partitioned: Partitioned Door Shuffle
   crossed: Crossed Door Shuffle
 lobbies:
-  Vanilla: Vanilla Dungeon Lobbies
-  Shuffled: Shuffled Dungeon Lobbies
+  vanilla: Vanilla Dungeon Lobbies
+  shuffled: Shuffled Dungeon Lobbies
 enemy_shuffle:
   vanilla: Vanilla Enemies
   shuffled: Shuffled Enemies
@@ -61,6 +62,23 @@ dungeon_items:
   wild: Wild
   nearby: Nearby
   universal: Universal
+shop_shuffle:
+  vanilla: None
+  shuffled: Shuffled Shops
+drop_shuffle:
+  vanilla: None
+  keys: Enemy Key Drops Shuffled
+  underworld: All Underworld Enemy Drops Shuffled
+pottery:
+  vanilla: None
+  keys: Key Pots Shuffled
+  cave: Cave Pots Shuffled
+  cave_keys: Cave & Key Pots Shuffled
+  reduced: Reduced Pot Shuffle
+  clustered: Clustered Pot Shuffle
+  non_empty: Non-Empty Pot Shuffle
+  dungeon: Dungeon Pots Shuffled
+  lottery: All Pots Shuffled
 prize_shuffle:
   vanilla: Prizes on Bosses
   dungeon: Prizes Shuffled in Dungeon
