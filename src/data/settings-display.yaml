@@ -3,6 +3,7 @@ randomizer:
 goal:
   ganon: "{{ crystals_ganon }} Crystal Ganon"
   fast_ganon: "{{ crystals_ganon }} Crystal Fast Ganon"
+  boss_hunt: "{{ bosses_ganon }} Boss Hunt"
   all_dungeons: All Dungeons
   trinity: Trinity
   triforce_hunt: Triforce Hunt

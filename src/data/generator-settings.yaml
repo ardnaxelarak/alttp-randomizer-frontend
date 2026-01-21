@@ -1,7 +1,7 @@
 base:
   mode: all
   weapons: all
-  goal: all
+  goal: ['ganon', 'fast_ganon', 'all_dungeons', 'trinity', 'pedestal', 'triforce_hunt', 'ganon_hunt', 'completionist', 'sanctuary']
   crystals_ganon: all
   crystals_gt: all
   ganon_item: all
@@ -55,6 +55,7 @@ dungeon_map:
   weapons: all
   goal: all
   crystals_ganon: all
+  bosses_ganon: all
   crystals_gt: all
   ganon_item: all
   entrance_shuffle: all

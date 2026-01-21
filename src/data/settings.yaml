@@ -43,6 +43,9 @@ goal:
     fast_ganon:
       display: Fast Ganon
       tip: Ganon must be defeated to complete the game, but can only be defeated once the player has collected a sufficient number of crystals.
+    boss_hunt:
+      display: Boss Hunt
+      tip: Ganon must be defeated to complete the game, but can only be defeated once the player has defeated a sufficient number of bosses.
     all_dungeons:
       display: All Dungeons
       tip: Ganon must be defeated to complete the game, but can only be defeated once the player has collected all seven crystals, all three pendants, and has defeated both forms of Agahnim.
@@ -86,6 +89,28 @@ crystals_ganon:
       display: 0
     random:
       display: Random
+bosses_ganon:
+  display: Bosses for Ganon
+  default: "8of10"
+  values:
+    "7of10":
+      display: "7 Prize Bosses"
+      tip: To defeat Ganon, you must defeat 7 of the 10 bosses (not including either form of Agahnim).
+    "8of10":
+      display: "8 Prize Bosses"
+      tip: To defeat Ganon, you must defeat 8 of the 10 bosses (not including either form of Agahnim).
+    "10of10":
+      display: "10 Prize Bosses"
+      tip: To defeat Ganon, you must defeat all 10 bosses (not including either form of Agahnim).
+    "8of12":
+      display: "8 Total Bosses"
+      tip: To defeat Ganon, you must defeat 8 of the 12 dungeon bosses.
+    "10of12":
+      display: "10 Total Bosses"
+      tip: To defeat Ganon, you must defeat 10 of the 12 dungeon bosses.
+    "12of12":
+      display: "12 Total Bosses"
+      tip: To defeat Ganon, you must defeat all 12 of the dungeon bosses.
 crystals_gt:
   display: Crystals for GT
   default: "7"

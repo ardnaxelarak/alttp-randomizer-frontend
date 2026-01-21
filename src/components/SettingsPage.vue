@@ -163,6 +163,8 @@ export default defineComponent({
       <SettingPicker color="success" v-model="set.goal" name="goal" :generator="generator" :prefix="prefix" />
       <SettingPicker color="success" v-if="['ganon', 'fast_ganon', 'trinity'].includes(this.set.goal)" 
           v-model="set.crystals_ganon" name="crystals_ganon" :generator="generator" :prefix="prefix" />
+      <SettingPicker color="success" v-if="['boss_hunt'].includes(this.set.goal)" 
+          v-model="set.bosses_ganon" name="bosses_ganon" :generator="generator" :prefix="prefix" />
       <SettingPicker color="success" v-if="['ganon', 'fast_ganon', 'trinity', 'ganon_hunt'].includes(this.set.goal)" 
           v-model="set.ganon_item" name="ganon_item" :generator="generator" :prefix="prefix" />
       <SettingPicker color="success" v-model="set.crystals_gt" name="crystals_gt" :generator="generator" :prefix="prefix" />
